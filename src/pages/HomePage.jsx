@@ -15,7 +15,8 @@ export default function HomePage() {
       title: "Blue-Red vs Orange-Red",
       description:
         "A simple guide to undertones so you can find the red that loves you back.",
-      live: false,
+      to: "/blue-red-vs-orange-red",
+      live: true,
     },
     {
       title: "Long-Wearing Reds That Stay Beautiful",

@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import BestOver40 from "./pages/BestOver40";
+import BlueVsOrange from "./pages/BlueVsOrange";
 
 export default function App() {
   return (
@@ -9,6 +10,10 @@ export default function App() {
       <Route
         path="/best-red-lipsticks-over-40"
         element={<BestOver40 />}
+      />
+      <Route
+        path="/blue-red-vs-orange-red"
+        element={<BlueVsOrange />}
       />
     </Routes>
   );
