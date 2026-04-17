@@ -1,4 +1,8 @@
+import { Link } from "react-router";
+
 export default function BestOver40() {
+  const year = new Date().getFullYear();
+
   const lipsticks = [
     {
       name: "Blue-based satin red",
@@ -42,31 +46,43 @@ export default function BestOver40() {
 
   return (
     <div className="min-h-screen bg-[#faf7f2] text-[#2d1e1e]">
-      <section className="border-b border-[#ead9d2] bg-gradient-to-b from-[#fffdf9] via-[#faf7f2] to-[#f8f0eb]">
-        <div className="mx-auto max-w-5xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
-          <a
-            href="/"
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b border-[#ead9d2] bg-gradient-to-b from-[#fffdf9] via-[#faf7f2] to-[#f8f0eb]">
+        <div className="absolute inset-0 opacity-40">
+          <div className="absolute left-[-8rem] top-[-6rem] h-64 w-64 rounded-full bg-[#d8b3b3]/30 blur-3xl" />
+          <div className="absolute right-[-6rem] top-10 h-72 w-72 rounded-full bg-[#c7a76c]/20 blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-16 lg:py-20">
+          <Link
+            to="/"
             className="inline-flex text-sm font-medium text-[#9f102d] transition hover:opacity-70"
           >
             ← Back to Home
-          </a>
+          </Link>
 
-          <div className="mt-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9f102d]">
+          <div className="mt-8 max-w-5xl">
+            <img
+              src="/kiss.png"
+              alt="Red Lipsticks logo"
+              className="mb-8 h-auto w-28 md:w-36 drop-shadow-[0_18px_40px_rgba(159,16,45,0.14)]"
+            />
+
+            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#9f102d]">
               Red Lipsticks Guide
             </p>
 
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-[-0.04em] md:text-5xl lg:text-6xl">
+            <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[0.94] tracking-[-0.05em] text-[#2d1e1e] md:text-6xl lg:text-7xl">
               Best Red Lipsticks for Women Over 40
             </h1>
 
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[#5b4343] md:text-xl">
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-[#5b4343] md:text-2xl md:leading-9">
               The most flattering reds are not always the loudest. The right red
               brings warmth, brightness, confidence, and polish to the face
               without feeling harsh.
             </p>
 
-            <p className="mt-5 max-w-3xl text-base leading-8 text-[#6f5555]">
+            <p className="mt-6 max-w-3xl text-base leading-8 text-[#6f5555] md:text-lg">
               If you are over 40, the most beautiful red lipstick is usually one
               that works with your undertone, lip texture, and comfort level.
               The goal is not to look younger. The goal is to look more alive,
@@ -76,15 +92,20 @@ export default function BestOver40() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-14 md:px-10 lg:px-16">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-          <article className="space-y-10">
-            <section className="rounded-[2rem] border border-[#ead9d2] bg-white p-8 shadow-[0_14px_40px_rgba(64,34,34,0.04)]">
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
+      {/* CONTENT */}
+      <section className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-16 lg:py-18">
+        <div className="grid gap-10 lg:grid-cols-[1.18fr_0.82fr]">
+          {/* MAIN ARTICLE */}
+          <article className="space-y-8">
+            <section className="rounded-[2.25rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_20px_55px_rgba(64,34,34,0.05)] md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                Editorial note
+              </p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
                 What makes a red lipstick flattering after 40?
               </h2>
 
-              <div className="mt-5 space-y-5 text-[15px] leading-8 text-[#5f4949]">
+              <div className="mt-6 space-y-6 text-[15px] leading-8 text-[#5f4949] md:text-base">
                 <p>
                   A flattering red usually has enough richness to define the
                   lips, but enough softness to avoid emphasizing dryness or
@@ -104,27 +125,27 @@ export default function BestOver40() {
               </div>
             </section>
 
-            <section className="rounded-[2rem] border border-[#ead9d2] bg-white p-8 shadow-[0_14px_40px_rgba(64,34,34,0.04)]">
+            <section className="rounded-[2.25rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_20px_55px_rgba(64,34,34,0.05)] md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
                 The edit
               </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
                 Five red lipstick directions worth knowing
               </h2>
 
-              <div className="mt-7 space-y-5">
+              <div className="mt-8 space-y-5">
                 {lipsticks.map((lipstick) => (
                   <div
                     key={lipstick.name}
-                    className="rounded-[1.5rem] border border-[#eee0da] bg-[#fffaf6] p-5"
+                    className="rounded-[1.75rem] border border-[#eee0da] bg-[#fffaf6] p-6 transition hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(64,34,34,0.05)]"
                   >
-                    <h3 className="text-xl font-semibold tracking-[-0.02em] text-[#2d1e1e]">
+                    <h3 className="text-xl font-semibold tracking-[-0.02em] text-[#2d1e1e] md:text-2xl">
                       {lipstick.name}
                     </h3>
-                    <p className="mt-3 text-sm leading-7 text-[#5f4949]">
+                    <p className="mt-3 text-sm leading-7 text-[#5f4949] md:text-[15px]">
                       {lipstick.reason}
                     </p>
-                    <p className="mt-3 text-sm text-[#9f102d]">
+                    <p className="mt-4 text-sm font-medium text-[#9f102d]">
                       Best for: {lipstick.bestFor}
                     </p>
                   </div>
@@ -132,37 +153,41 @@ export default function BestOver40() {
               </div>
             </section>
 
-            <section className="rounded-[2rem] border border-[#ead9d2] bg-white p-8 shadow-[0_14px_40px_rgba(64,34,34,0.04)]">
-              <h2 className="text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
+            <section className="rounded-[2.25rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_20px_55px_rgba(64,34,34,0.05)] md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                Application
+              </p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
                 How to make red lipstick look more polished
               </h2>
 
-              <ul className="mt-6 space-y-4 text-[15px] leading-8 text-[#5f4949]">
+              <ul className="mt-8 space-y-5 text-[15px] leading-8 text-[#5f4949]">
                 {tips.map((tip) => (
-                  <li key={tip} className="flex gap-3">
-                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-[#9f102d]" />
+                  <li key={tip} className="flex gap-4">
+                    <span className="mt-3 h-2.5 w-2.5 rounded-full bg-[#9f102d]" />
                     <span>{tip}</span>
                   </li>
                 ))}
               </ul>
             </section>
 
-            <section className="rounded-[2rem] border border-[#ead9d2] bg-gradient-to-r from-[#2d1e1e] to-[#4a2c30] p-8 text-[#f8eee7] shadow-[0_14px_40px_rgba(64,34,34,0.12)]">
+            <section className="rounded-[2.25rem] border border-[#ead9d2] bg-gradient-to-r from-[#2d1e1e] to-[#4a2c30] p-8 text-[#f8eee7] shadow-[0_20px_55px_rgba(64,34,34,0.14)] md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#d9b67f]">
                 Coming soon
               </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] md:text-3xl">
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
                 Which red lipstick was made for you?
               </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#ead6d0]">
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-[#ead6d0] md:text-[15px]">
                 A future personality quiz will help match you with the kind of
                 red that best fits your undertone, mood, and style.
               </p>
             </section>
           </article>
 
+          {/* SIDEBAR */}
           <aside className="space-y-6">
-            <div className="rounded-[2rem] border border-[#ead9d2] bg-white p-6 shadow-[0_14px_40px_rgba(64,34,34,0.04)]">
+            <div className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-7 shadow-[0_16px_40px_rgba(64,34,34,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#9f102d]">
                 Quick takeaway
               </p>
@@ -173,14 +198,14 @@ export default function BestOver40() {
               </p>
             </div>
 
-            <div className="rounded-[2rem] border border-[#ead9d2] bg-[#fffaf6] p-6 shadow-[0_14px_40px_rgba(64,34,34,0.04)]">
+            <div className="rounded-[2rem] border border-[#ead9d2] bg-[#fffaf6] p-7 shadow-[0_16px_40px_rgba(64,34,34,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
                 Future affiliate block
               </p>
               <h3 className="mt-3 text-xl font-semibold tracking-[-0.02em]">
                 Product picks to add later
               </h3>
-              <ul className="mt-4 space-y-3 text-sm leading-7 text-[#5f4949]">
+              <ul className="mt-5 space-y-3 text-sm leading-7 text-[#5f4949]">
                 <li>Best satin red</li>
                 <li>Best soft matte red</li>
                 <li>Best drugstore red</li>
@@ -188,7 +213,7 @@ export default function BestOver40() {
               </ul>
             </div>
 
-            <div className="rounded-[2rem] border border-[#ead9d2] bg-white p-6 shadow-[0_14px_40px_rgba(64,34,34,0.04)]">
+            <div className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-7 shadow-[0_16px_40px_rgba(64,34,34,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#9f102d]">
                 Join the list
               </p>
@@ -211,18 +236,37 @@ export default function BestOver40() {
                 </button>
               </div>
             </div>
+
+            <div className="rounded-[2rem] border border-[#ead9d2] bg-gradient-to-br from-[#fffdf9] to-[#f7efe9] p-7 shadow-[0_16px_40px_rgba(64,34,34,0.04)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                Signature note
+              </p>
+              <p className="mt-4 text-sm leading-7 text-[#5f4949]">
+                The most beautiful red is rarely the one shouting the loudest.
+                It is the one that makes you look more finished, more luminous,
+                and more unmistakably yourself.
+              </p>
+            </div>
           </aside>
         </div>
       </section>
 
+      {/* FOOTER */}
       <footer className="border-t border-[#ead9d2] bg-[#fffaf6]">
-        <div className="mx-auto max-w-5xl px-6 py-8 text-center md:px-10 lg:px-16">
-          <p className="text-sm tracking-[0.06em] text-[#6f5555]">
-            © {new Date().getFullYear()} RedLipsticks.com. All rights reserved.
-          </p>
-          <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[#9f102d]">
-            Created by PamelaJTerrell.com
-          </p>
+        <div className="mx-auto max-w-6xl px-6 py-10 text-center md:px-10 lg:px-16">
+          <div className="flex flex-col items-center gap-3">
+            <img
+              src="/kiss.png"
+              alt="Red Lipsticks logo"
+              className="h-auto w-14 opacity-95"
+            />
+            <p className="text-sm tracking-[0.06em] text-[#6f5555]">
+              © {year} RedLipsticks.com. All rights reserved.
+            </p>
+            <p className="text-xs uppercase tracking-[0.18em] text-[#9f102d]">
+              Created by PamelaJTerrell.com
+            </p>
+          </div>
         </div>
       </footer>
     </div>
