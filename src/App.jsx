@@ -1,4 +1,6 @@
 export default function App() {
+  const year = new Date().getFullYear();
+
   const featuredGuides = [
     {
       title: "Best Red Lipsticks for Women Over 40",
@@ -26,78 +28,109 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#faf7f2] text-[#2d1e1e]">
+      {/* HERO */}
       <section className="relative overflow-hidden border-b border-[#ead9d2] bg-gradient-to-b from-[#fffdf9] via-[#faf7f2] to-[#f8f0eb]">
         <div className="absolute inset-0 opacity-40">
           <div className="absolute left-[-8rem] top-[-6rem] h-64 w-64 rounded-full bg-[#d8b3b3]/30 blur-3xl" />
           <div className="absolute right-[-6rem] top-16 h-72 w-72 rounded-full bg-[#c7a76c]/20 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:px-16 lg:py-24">
-          <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#9f102d]">
+        {/* TOP BAR */}
+        <div className="relative mx-auto max-w-7xl px-6 pt-6 md:px-10 lg:px-16">
+          <header className="flex items-center justify-between border-b border-[#ead9d2]/80 pb-4">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#9f102d]">
               RedLipsticks.com
             </p>
 
-            <h1 className="max-w-3xl text-5xl font-semibold leading-[0.95] tracking-[-0.04em] text-[#2d1e1e] md:text-6xl lg:text-7xl">
+            <nav className="hidden gap-8 text-sm text-[#6b5252] md:flex">
+              <a href="#guides" className="transition hover:text-[#9f102d]">
+                Guides
+              </a>
+              <a href="#shop" className="transition hover:text-[#9f102d]">
+                Shop
+              </a>
+              <a href="#email" className="transition hover:text-[#9f102d]">
+                Join
+              </a>
+            </nav>
+          </header>
+        </div>
+
+        {/* HERO GRID */}
+        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-14 md:px-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-18 lg:px-16 lg:py-24">
+          {/* LEFT */}
+          <div>
+            <img
+              src="/kiss.png"
+              alt="Red Lipsticks logo"
+              className="mb-8 w-40 h-auto md:w-52 drop-shadow-[0_18px_40px_rgba(159,16,45,0.15)]"
+            />
+
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-[#9f102d]">
+              Beauty · Confidence · Signature Red
+            </p>
+
+            <h1 className="max-w-3xl text-5xl font-semibold leading-[0.92] tracking-[-0.05em] text-[#2d1e1e] md:text-6xl lg:text-7xl">
               Find the red that changes everything.
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5b4343] md:text-xl">
-              Confidence, glamour, and flattering lipstick guidance for women who
-              want elegance that feels modern, wearable, and unforgettable.
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5b4343] md:text-xl">
+              Elegant lipstick guidance for women who want glamour that feels
+              polished, flattering, and beautifully grown.
             </p>
 
             <p className="mt-5 max-w-2xl text-base leading-7 text-[#7b6060]">
-              Red Lipsticks blends beauty, undertone guidance, age-aware product
-              picks, and polished style inspiration so finding your signature red
-              feels exciting instead of overwhelming.
+              Discover refined shade edits, undertone guidance, product picks,
+              and confidence-driven beauty inspiration designed to make choosing
+              your red feel luxurious instead of overwhelming.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a
                 href="#guides"
                 className="inline-flex items-center justify-center rounded-full bg-[#9f102d] px-7 py-3.5 text-sm font-medium text-white shadow-[0_12px_30px_rgba(159,16,45,0.22)] transition hover:-translate-y-0.5 hover:bg-[#890d26]"
               >
-                Explore Guides
+                Explore the Edit
               </a>
+
               <a
                 href="#shop"
-                className="inline-flex items-center justify-center rounded-full border border-[#d9c2b7] bg-white/75 px-7 py-3.5 text-sm font-medium text-[#2d1e1e] transition hover:-translate-y-0.5 hover:border-[#c7a76c] hover:bg-white"
+                className="inline-flex items-center justify-center rounded-full border border-[#d9c2b7] bg-white/80 px-7 py-3.5 text-sm font-medium text-[#2d1e1e] transition hover:-translate-y-0.5 hover:border-[#c7a76c] hover:bg-white"
               >
-                Shop the Look
+                Shop Signature Picks
               </a>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3 text-sm text-[#6f5555]">
               <span className="rounded-full border border-[#ead9d2] bg-white/70 px-4 py-2">
-                Beauty guides
+                Flattering shade guides
               </span>
               <span className="rounded-full border border-[#ead9d2] bg-white/70 px-4 py-2">
-                Shade education
+                Luxury & budget picks
               </span>
               <span className="rounded-full border border-[#ead9d2] bg-white/70 px-4 py-2">
-                Product picks
-              </span>
-              <span className="rounded-full border border-[#ead9d2] bg-white/70 px-4 py-2">
-                Confidence & style
+                Confidence-focused beauty
               </span>
             </div>
           </div>
 
+          {/* RIGHT CARD */}
           <div className="relative">
             <div className="rounded-[2rem] border border-[#ead9d2] bg-white/80 p-5 shadow-[0_24px_70px_rgba(64,34,34,0.08)] backdrop-blur">
               <div className="rounded-[1.75rem] bg-gradient-to-br from-[#f9e3e3] via-[#fff7f6] to-[#f4e7da] p-6 md:p-7">
                 <div className="rounded-[1.5rem] border border-white/60 bg-white/65 p-6 shadow-inner">
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#9f102d]">
-                    Featured theme
+                    The editorial edit
                   </p>
-                  <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#2d1e1e]">
-                    The signature red edit
+
+                  <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-[#2d1e1e] md:text-4xl">
+                    A more polished kind of red.
                   </h2>
+
                   <p className="mt-4 text-base leading-7 text-[#6a5050]">
                     Curated lipstick recommendations, flattering undertone notes,
-                    and styling ideas designed to help you choose a red that feels
-                    elevated, not intimidating.
+                    and styling ideas designed to help you choose a red that
+                    feels elevated, not intimidating.
                   </p>
 
                   <div className="mt-6 grid gap-3">
@@ -113,7 +146,7 @@ export default function App() {
                   </div>
 
                   <div className="mt-6 rounded-2xl bg-[#2d1e1e] px-5 py-4 text-[#f8eee7]">
-                    <p className="text-sm font-medium">Coming soon</p>
+                    <p className="text-sm font-medium">Coming Soon</p>
                     <p className="mt-1 text-sm leading-6 text-[#ead6d0]">
                       Personality quiz: Which red lipstick was made for you?
                     </p>
@@ -125,6 +158,7 @@ export default function App() {
         </div>
       </section>
 
+      {/* GUIDES */}
       <section
         className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16"
         id="guides"
@@ -132,16 +166,18 @@ export default function App() {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9f102d]">
-              Start here
+              Start Here
             </p>
+
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-4xl">
               Beauty guidance with an editorial feel
             </h2>
           </div>
+
           <p className="max-w-2xl text-base leading-7 text-[#6f5555]">
-            Build the site around searchable guides, flattering recommendations,
-            and confidence-driven content that can later support affiliate links,
-            email signups, and curated product edits.
+            Build the brand around searchable guides, flattering
+            recommendations, and confidence-driven content that can later support
+            affiliate links, email signups, and curated product edits.
           </p>
         </div>
 
@@ -154,12 +190,15 @@ export default function App() {
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
                 Guide
               </p>
+
               <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-[#2d1e1e]">
                 {guide.title}
               </h3>
+
               <p className="mt-4 text-sm leading-7 text-[#6f5555]">
                 {guide.description}
               </p>
+
               <a
                 href="#"
                 className="mt-6 inline-flex text-sm font-medium text-[#9f102d] hover:text-[#7f0c21]"
@@ -171,20 +210,23 @@ export default function App() {
         </div>
       </section>
 
+      {/* SHOP */}
       <section className="border-y border-[#ead9d2] bg-[#fffaf6]" id="shop">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-16">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#9f102d]">
-              Monetization path
+              Monetization Path
             </p>
+
             <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] md:text-4xl">
               Ready for affiliate links, product edits, and quizzes
             </h2>
+
             <p className="mt-5 max-w-xl text-base leading-8 text-[#6f5555]">
-              This first version positions the brand as elegant and useful.
-              That gives you room to publish lipstick guides, comparison pages,
-              and curated recommendations without the site feeling cluttered or
-              overly salesy.
+              This version positions the brand as elegant and useful. It gives
+              you room to publish lipstick guides, comparison pages, and curated
+              recommendations without the site feeling cluttered or overly
+              salesy.
             </p>
           </div>
 
@@ -193,7 +235,7 @@ export default function App() {
               "Best reds under $15",
               "Luxury reds worth the splurge",
               "Lip liners that elevate every red",
-              "The most flattering reds for warm undertones",
+              "Most flattering reds for warm undertones",
             ].map((item) => (
               <div
                 key={item}
@@ -206,27 +248,36 @@ export default function App() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16">
+      {/* EMAIL */}
+      <section
+        className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16"
+        id="email"
+      >
         <div className="rounded-[2rem] border border-[#ead9d2] bg-gradient-to-r from-[#2d1e1e] to-[#4a2c30] px-8 py-10 text-[#f7ece6] md:px-10 md:py-12">
           <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#d9b67f]">
-            Email list idea
+            Join the List
           </p>
+
           <div className="mt-4 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-semibold tracking-[-0.03em] md:text-4xl">
-                Get the guide: 7 red lipsticks that make you look instantly more polished.
+                Get the guide: 7 red lipsticks that instantly make you look more
+                polished.
               </h2>
+
               <p className="mt-4 text-base leading-8 text-[#ead6d0]">
-                A future freebie that can help you start building an audience while
+                A future freebie that can help you grow an audience while
                 keeping the brand useful, elegant, and easy to monetize.
               </p>
             </div>
+
             <div className="flex flex-col gap-3 sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="min-w-[240px] rounded-full border border-white/20 bg-white/10 px-5 py-3.5 text-sm text-white placeholder:text-[#d7c4bf] focus:outline-none"
               />
+
               <button className="rounded-full bg-[#d9b67f] px-6 py-3.5 text-sm font-medium text-[#2d1e1e] transition hover:brightness-105">
                 Join the List
               </button>
@@ -234,6 +285,27 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-[#ead9d2] bg-[#fffaf6]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-center md:px-10 lg:px-16">
+          <p className="text-sm tracking-[0.06em] text-[#6f5555]">
+            © {year} RedLipsticks.com. All rights reserved.
+          </p>
+
+          <p className="text-xs uppercase tracking-[0.18em] text-[#9f102d]">
+            Created by{" "}
+            <a
+              href="https://pamelajterrell.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:opacity-70"
+            >
+              PamelaJTerrell.com
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
