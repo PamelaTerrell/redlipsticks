@@ -1,9 +1,8 @@
 import { Link } from "react-router";
+import SiteHeader from "../components/SiteHeader";
 import Footer from "../components/Footer";
 
 export default function HomePage() {
-  const year = new Date().getFullYear();
-
   const featuredGuides = [
     {
       title: "Best Red Lipsticks for Women Over 40",
@@ -20,10 +19,11 @@ export default function HomePage() {
       live: true,
     },
     {
-      title: "Long-Wearing Reds That Stay Beautiful",
+      title: "Red Lipsticks That Make Teeth Look Whiter",
       description:
-        "Comfortable formulas and polished finishes that last through real life.",
-      live: false,
+        "The cool-toned reds, cherry shades, and berry reds that make the smile look brighter.",
+      to: "/red-lipsticks-that-make-teeth-look-whiter",
+      live: true,
     },
   ];
 
@@ -58,8 +58,16 @@ export default function HomePage() {
     "Creamy satin red for mature lips",
   ];
 
+  const editorialNotes = [
+    "Undertone guidance that makes beauty choices easier",
+    "Search-friendly lipstick content with affiliate potential",
+    "Elegant visual branding that feels polished and memorable",
+  ];
+
   return (
     <div className="min-h-screen bg-[#faf7f2] text-[#2d1e1e]">
+      <SiteHeader />
+
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-[#ead9d2] bg-gradient-to-b from-[#fffdf9] via-[#faf7f2] to-[#f8f0eb]">
         <div className="absolute inset-0 opacity-40">
@@ -67,34 +75,7 @@ export default function HomePage() {
           <div className="absolute right-[-6rem] top-10 h-72 w-72 rounded-full bg-[#c7a76c]/20 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-6 md:px-10 lg:px-16">
-          <header className="flex items-center justify-between border-b border-[#ead9d2]/80 pb-4">
-            <Link
-              to="/"
-              className="text-sm font-medium uppercase tracking-[0.22em] text-[#9f102d] transition hover:opacity-70"
-            >
-              RedLipsticks.com
-            </Link>
-
-            <nav className="hidden gap-8 text-sm text-[#6b5252] md:flex">
-              <a href="#guides" className="transition hover:text-[#9f102d]">
-                Guides
-              </a>
-              <a href="#undertones" className="transition hover:text-[#9f102d]">
-                Undertones
-              </a>
-              <a href="#shop" className="transition hover:text-[#9f102d]">
-                Shop
-              </a>
-              <a href="#email" className="transition hover:text-[#9f102d]">
-                Join
-              </a>
-            </nav>
-          </header>
-        </div>
-
-        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-14 md:px-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-20 lg:px-16 lg:py-24">
-          {/* LEFT */}
+        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 pt-20 pb-14 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-16 lg:pt-24 lg:pb-24">
           <div>
             <img
               src="/kiss.png"
@@ -151,9 +132,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* RIGHT CARD */}
           <div className="relative">
-            <div className="rounded-[2.25rem] border border-[#ead9d2] bg-white/85 p-5 shadow-[0_26px_72px_rgba(64,34,34,0.08)] backdrop-blur">
+            <div className="rounded-[2.4rem] border border-[#ead9d2] bg-white/85 p-5 shadow-[0_26px_72px_rgba(64,34,34,0.08)] backdrop-blur">
               <div className="rounded-[2rem] bg-gradient-to-br from-[#f9e3e3] via-[#fff7f6] to-[#f4e7da] p-6 md:p-8">
                 <div className="rounded-[1.75rem] border border-white/60 bg-white/70 p-6 shadow-inner md:p-7">
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9f102d]">
@@ -195,6 +175,20 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* EDITORIAL STRIP */}
+      <section className="border-b border-[#ead9d2] bg-[#fffaf6]">
+        <div className="mx-auto grid max-w-7xl gap-4 px-6 py-8 md:px-10 lg:grid-cols-3 lg:px-16">
+          {editorialNotes.map((item) => (
+            <div
+              key={item}
+              className="rounded-[1.5rem] border border-[#ead9d2] bg-white/90 px-5 py-5 text-sm leading-7 text-[#5f4949] shadow-[0_12px_28px_rgba(64,34,34,0.04)]"
+            >
+              {item}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -322,7 +316,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SHOP */}
+      {/* MONETIZATION / SHOP */}
       <section id="shop">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-16 lg:py-18">
           <div>
@@ -398,8 +392,7 @@ export default function HomePage() {
         </div>
       </section>
 
-     <Footer />
-           
+      <Footer />
     </div>
   );
 }
