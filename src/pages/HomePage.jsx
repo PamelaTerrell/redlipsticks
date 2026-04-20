@@ -26,6 +26,30 @@ export default function HomePage() {
     },
   ];
 
+  const undertoneGuides = [
+    {
+      title: "Warm Skin Tone Guide",
+      description:
+        "Golden, peachy, and sunlit undertones often shine in earthy clothing palettes, gold jewelry, and orange-red lip colors.",
+      to: "/warm-skin-tone-colors",
+      palette: ["Camel", "Ivory", "Olive", "Terracotta", "Gold"],
+    },
+    {
+      title: "Cool Skin Tone Guide",
+      description:
+        "Pink, rosy, and blue-based undertones are often flattered by jewel tones, silver jewelry, and blue-red lip colors.",
+      to: "/cool-skin-tone-colors",
+      palette: ["Berry", "Emerald", "Navy", "Icy Pink", "Silver"],
+    },
+    {
+      title: "Neutral Skin Tone Guide",
+      description:
+        "Balanced undertones can often wear both warm and cool shades beautifully, with flexibility across reds, clothing, and metals.",
+      to: "/neutral-skin-tone-colors",
+      palette: ["Rose", "Soft White", "Taupe", "Teal", "Mixed Metals"],
+    },
+  ];
+
   const shopPicks = [
     "Classic blue-red for bright smiles",
     "Soft deep red for everyday elegance",
@@ -55,6 +79,9 @@ export default function HomePage() {
               <a href="#guides" className="transition hover:text-[#9f102d]">
                 Guides
               </a>
+              <a href="#undertones" className="transition hover:text-[#9f102d]">
+                Undertones
+              </a>
               <a href="#shop" className="transition hover:text-[#9f102d]">
                 Shop
               </a>
@@ -75,7 +102,7 @@ export default function HomePage() {
             />
 
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.36em] text-[#9f102d]">
-              Beauty · Confidence · Signature Red
+              Beauty · Color · Confidence
             </p>
 
             <h1 className="max-w-4xl text-5xl font-semibold leading-[0.9] tracking-[-0.055em] text-[#2d1e1e] md:text-6xl lg:text-7xl">
@@ -83,14 +110,15 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5b4343] md:text-2xl md:leading-9">
-              Elegant lipstick guidance for women who want glamour that feels
-              polished, flattering, and beautifully grown.
+              Elegant beauty and color guidance for women who want glamour that
+              feels polished, flattering, and beautifully grown.
             </p>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#7b6060] md:text-lg">
-              Discover refined shade edits, undertone guidance, product picks,
-              and confidence-driven beauty inspiration designed to make choosing
-              your red feel luxurious instead of overwhelming.
+              Discover refined red lipstick edits, undertone guidance,
+              flattering color palettes, jewelry suggestions, and
+              confidence-driven beauty inspiration designed to make personal
+              style feel luxurious instead of overwhelming.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -102,10 +130,10 @@ export default function HomePage() {
               </a>
 
               <a
-                href="#shop"
+                href="#undertones"
                 className="inline-flex items-center justify-center rounded-full border border-[#d9c2b7] bg-white/80 px-7 py-3.5 text-sm font-medium text-[#2d1e1e] shadow-[0_10px_28px_rgba(64,34,34,0.04)] transition hover:-translate-y-0.5 hover:border-[#c7a76c] hover:bg-white"
               >
-                Shop Signature Picks
+                Find Your Undertone
               </a>
             </div>
 
@@ -114,10 +142,10 @@ export default function HomePage() {
                 Flattering shade guides
               </span>
               <span className="rounded-full border border-[#ead9d2] bg-white/75 px-4 py-2">
-                Luxury & budget picks
+                Clothing color palettes
               </span>
               <span className="rounded-full border border-[#ead9d2] bg-white/75 px-4 py-2">
-                Confidence-focused beauty
+                Jewelry & undertone guidance
               </span>
             </div>
           </div>
@@ -136,9 +164,9 @@ export default function HomePage() {
                   </h2>
 
                   <p className="mt-5 text-base leading-8 text-[#6a5050]">
-                    Curated lipstick recommendations, flattering undertone notes,
-                    and styling ideas designed to help you choose a red that
-                    feels elevated, not intimidating.
+                    Curated lipstick recommendations, undertone guidance,
+                    flattering wardrobe colors, and jewelry suggestions designed
+                    to help you build a more elevated signature style.
                   </p>
 
                   <div className="mt-7 grid gap-3">
@@ -158,7 +186,8 @@ export default function HomePage() {
                       Coming soon
                     </p>
                     <p className="mt-3 text-base font-medium leading-7">
-                      Personality quiz: Which red lipstick was made for you?
+                      Personality quiz: Which red lipstick and color palette were
+                      made for you?
                     </p>
                   </div>
                 </div>
@@ -186,8 +215,8 @@ export default function HomePage() {
 
           <p className="max-w-2xl text-base leading-8 text-[#6f5555]">
             Build the brand around searchable guides, flattering
-            recommendations, and confidence-driven content that can later support
-            affiliate links, email signups, and curated product edits.
+            recommendations, and confidence-driven content that can later
+            support affiliate links, email signups, and curated product edits.
           </p>
         </div>
 
@@ -226,8 +255,74 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* UNDERTONES */}
+      <section
+        className="border-y border-[#ead9d2] bg-[#fffaf6]"
+        id="undertones"
+      >
+        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#9f102d]">
+                Find Your Undertone
+              </p>
+
+              <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.04em] md:text-5xl">
+                Warm, cool, or neutral — discover the colors that flatter you
+                most
+              </h2>
+            </div>
+
+            <p className="max-w-2xl text-base leading-8 text-[#6f5555]">
+              These guides go beyond lipstick alone. Explore the clothing
+              colors, jewelry metals, and red lipstick tones that work
+              beautifully with your natural undertone.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {undertoneGuides.map((guide) => (
+              <article
+                key={guide.title}
+                className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-7 shadow-[0_18px_46px_rgba(64,34,34,0.05)] transition hover:-translate-y-1"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                  Undertone Guide
+                </p>
+
+                <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.03em] text-[#2d1e1e]">
+                  {guide.title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-[#6f5555]">
+                  {guide.description}
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {guide.palette.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-[#ead9d2] bg-[#faf7f2] px-3 py-1.5 text-xs text-[#6f5555]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                <Link
+                  to={guide.to}
+                  className="mt-7 inline-flex text-sm font-medium text-[#9f102d] hover:text-[#7f0c21]"
+                >
+                  Explore guide →
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SHOP */}
-      <section className="border-y border-[#ead9d2] bg-[#fffaf6]" id="shop">
+      <section id="shop">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-16 lg:py-18">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#9f102d]">
@@ -240,9 +335,9 @@ export default function HomePage() {
 
             <p className="mt-6 max-w-xl text-base leading-8 text-[#6f5555]">
               This version positions the brand as elegant and useful. It gives
-              you room to publish lipstick guides, comparison pages, and curated
-              recommendations without the site feeling cluttered or overly
-              salesy.
+              you room to publish lipstick guides, undertone articles,
+              comparison pages, jewelry pairings, and curated recommendations
+              without the site feeling cluttered or overly salesy.
             </p>
           </div>
 
