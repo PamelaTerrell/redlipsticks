@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import PageLayout from "../components/PageLayout";
 
 export default function WarmSkinToneColors() {
   const clothingColors = [
@@ -43,7 +44,7 @@ export default function WarmSkinToneColors() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fbf6ef] text-[#34241b]">
+    <PageLayout bgClassName="bg-[#fbf6ef] text-[#34241b]">
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-[#eadbc9] bg-gradient-to-b from-[#fffdf9] via-[#fbf6ef] to-[#f7efe4]">
         <div className="absolute inset-0 opacity-50">
@@ -51,39 +52,7 @@ export default function WarmSkinToneColors() {
           <div className="absolute right-[-5rem] top-10 h-72 w-72 rounded-full bg-[#d8a15b]/25 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-6 md:px-10 lg:px-16">
-          <header className="flex items-center justify-between border-b border-[#eadbc9]/80 pb-4">
-            <Link
-              to="/"
-              className="text-sm font-medium uppercase tracking-[0.22em] text-[#a25524] transition hover:opacity-70"
-            >
-              RedLipsticks.com
-            </Link>
-
-            <nav className="hidden gap-8 text-sm text-[#765c49] md:flex">
-              <Link to="/" className="transition hover:text-[#a25524]">
-                Home
-              </Link>
-
-              <Link
-                to="/cool-skin-tone-colors"
-                className="transition hover:text-[#a25524]"
-              >
-                Cool Tones
-              </Link>
-
-              <Link
-                to="/neutral-skin-tone-colors"
-                className="transition hover:text-[#a25524]"
-              >
-                Neutral
-              </Link>
-            </nav>
-          </header>
-        </div>
-
         <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-14 md:px-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20 lg:px-16 lg:py-24">
-          {/* LEFT */}
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-[#a25524]">
               Warm Undertone Guide
@@ -133,7 +102,6 @@ export default function WarmSkinToneColors() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
           <div className="relative">
             <div className="rounded-[2.25rem] border border-[#eadbc9] bg-white/85 p-5 shadow-[0_26px_72px_rgba(72,44,26,0.08)] backdrop-blur">
               <div className="rounded-[2rem] bg-gradient-to-br from-[#f8ead7] via-[#fff7ef] to-[#f2e1cf] p-4 md:p-5">
@@ -206,10 +174,7 @@ export default function WarmSkinToneColors() {
       </section>
 
       {/* CHART */}
-      <section
-        id="chart"
-        className="border-y border-[#eadbc9] bg-[#fffaf5]"
-      >
+      <section id="chart" className="border-y border-[#eadbc9] bg-[#fffaf5]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#a25524]">
@@ -227,7 +192,6 @@ export default function WarmSkinToneColors() {
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {/* Clothing */}
             <article className="rounded-[2rem] border border-[#eadbc9] bg-white p-7 shadow-[0_18px_46px_rgba(72,44,26,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c48b54]">
                 Clothing Colors
@@ -249,7 +213,6 @@ export default function WarmSkinToneColors() {
               </div>
             </article>
 
-            {/* Lipsticks */}
             <article className="rounded-[2rem] border border-[#eadbc9] bg-white p-7 shadow-[0_18px_46px_rgba(72,44,26,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c48b54]">
                 Best Red Lipsticks
@@ -271,7 +234,6 @@ export default function WarmSkinToneColors() {
               </div>
             </article>
 
-            {/* Jewelry */}
             <article className="rounded-[2rem] border border-[#eadbc9] bg-white p-7 shadow-[0_18px_46px_rgba(72,44,26,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c48b54]">
                 Jewelry Metals
@@ -357,6 +319,6 @@ export default function WarmSkinToneColors() {
           </div>
         </div>
       </section>
-    </div>
+    </PageLayout>
   );
 }

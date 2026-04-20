@@ -1,8 +1,7 @@
 import { Link } from "react-router";
+import PageLayout from "../components/PageLayout";
 
 export default function BlueVsOrange() {
-  const year = new Date().getFullYear();
-
   const comparisons = [
     {
       title: "Blue-red",
@@ -29,7 +28,7 @@ export default function BlueVsOrange() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#faf7f2] text-[#2d1e1e]">
+    <PageLayout bgClassName="bg-[#faf7f2] text-[#2d1e1e]">
       <section className="relative overflow-hidden border-b border-[#ead9d2] bg-gradient-to-b from-[#fffdf9] via-[#faf7f2] to-[#f8f0eb]">
         <div className="absolute inset-0 opacity-40">
           <div className="absolute left-[-8rem] top-[-6rem] h-64 w-64 rounded-full bg-[#d8b3b3]/30 blur-3xl" />
@@ -114,9 +113,10 @@ export default function BlueVsOrange() {
               </h2>
 
               <p className="mt-5 max-w-3xl text-[15px] leading-8 text-[#5f4949] md:text-base">
-                Blue-red tends to read cooler, crisper, and more classic. Orange-red
-                tends to read warmer, softer, and more sunlit. Seeing them side by
-                side can make the undertone difference much easier to recognize.
+                Blue-red tends to read cooler, crisper, and more classic.
+                Orange-red tends to read warmer, softer, and more sunlit. Seeing
+                them side by side can make the undertone difference much easier
+                to recognize.
               </p>
 
               <div className="mt-8 overflow-hidden rounded-[1.9rem] border border-[#eee0da] bg-[#fffaf6] shadow-[0_18px_40px_rgba(64,34,34,0.05)]">
@@ -179,7 +179,8 @@ export default function BlueVsOrange() {
                 Final thought
               </p>
               <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
-                The best red is the one that makes your whole face look more alive.
+                The best red is the one that makes your whole face look more
+                alive.
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-[#ead6d0] md:text-[15px]">
                 If a red makes your skin look clearer, your smile brighter, and
@@ -196,7 +197,8 @@ export default function BlueVsOrange() {
               </p>
               <p className="mt-4 text-sm leading-7 text-[#5f4949]">
                 Blue-red usually flatters cooler coloring. Orange-red usually
-                flatters warmer coloring. Neutral undertones can often wear both.
+                flatters warmer coloring. Neutral undertones can often wear
+                both.
               </p>
             </div>
 
@@ -251,24 +253,6 @@ export default function BlueVsOrange() {
           </aside>
         </div>
       </section>
-
-      <footer className="border-t border-[#ead9d2] bg-[#fffaf6]">
-        <div className="mx-auto max-w-6xl px-6 py-10 text-center md:px-10 lg:px-16">
-          <div className="flex flex-col items-center gap-3">
-            <img
-              src="/kiss.png"
-              alt="Red Lipsticks logo"
-              className="h-auto w-14 opacity-95"
-            />
-            <p className="text-sm tracking-[0.06em] text-[#6f5555]">
-              © {year} RedLipsticks.com. All rights reserved.
-            </p>
-            <p className="text-xs uppercase tracking-[0.18em] text-[#9f102d]">
-              Created by PamelaJTerrell.com
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </PageLayout>
   );
 }

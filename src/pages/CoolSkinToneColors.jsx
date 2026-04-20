@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import PageLayout from "../components/PageLayout";
 
 export default function CoolSkinToneColors() {
   const clothingColors = [
@@ -38,41 +39,12 @@ export default function CoolSkinToneColors() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f7f5f8] text-[#2b2230]">
+    <PageLayout bgClassName="bg-[#f7f5f8] text-[#2b2230]">
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-[#e6dde9] bg-gradient-to-b from-[#fcfbfd] via-[#f7f5f8] to-[#f1edf4]">
         <div className="absolute inset-0 opacity-50">
           <div className="absolute left-[-6rem] top-[-4rem] h-64 w-64 rounded-full bg-[#d8cade]/35 blur-3xl" />
           <div className="absolute right-[-5rem] top-10 h-72 w-72 rounded-full bg-[#cfd7ef]/30 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 pt-6 md:px-10 lg:px-16">
-          <header className="flex items-center justify-between border-b border-[#e6dde9]/80 pb-4">
-            <Link
-              to="/"
-              className="text-sm font-medium uppercase tracking-[0.22em] text-[#7b4f7f] transition hover:opacity-70"
-            >
-              RedLipsticks.com
-            </Link>
-
-            <nav className="hidden gap-8 text-sm text-[#6b5b72] md:flex">
-              <Link to="/" className="transition hover:text-[#7b4f7f]">
-                Home
-              </Link>
-              <Link
-                to="/blue-red-vs-orange-red"
-                className="transition hover:text-[#7b4f7f]"
-              >
-                Undertones
-              </Link>
-              <Link
-                to="/best-red-lipsticks-over-40"
-                className="transition hover:text-[#7b4f7f]"
-              >
-                Over 40
-              </Link>
-            </nav>
-          </header>
         </div>
 
         <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-14 md:px-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20 lg:px-16 lg:py-24">
@@ -202,10 +174,7 @@ export default function CoolSkinToneColors() {
       </section>
 
       {/* CHART + BREAKDOWN */}
-      <section
-        className="border-y border-[#e6dde9] bg-[#fcfbfd]"
-        id="chart"
-      >
+      <section className="border-y border-[#e6dde9] bg-[#fcfbfd]" id="chart">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#7b4f7f]">
@@ -400,6 +369,6 @@ export default function CoolSkinToneColors() {
           </div>
         </div>
       </section>
-    </div>
+    </PageLayout>
   );
 }

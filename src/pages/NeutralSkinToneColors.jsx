@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import PageLayout from "../components/PageLayout";
 
 export default function NeutralSkinToneColors() {
   const clothingColors = [
@@ -50,7 +51,7 @@ export default function NeutralSkinToneColors() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f8f3ee] text-[#332821]">
+    <PageLayout bgClassName="bg-[#f8f3ee] text-[#332821]">
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-[#e8ddd2] bg-gradient-to-b from-[#fdfbf8] via-[#f8f3ee] to-[#f4ede6]">
         <div className="absolute inset-0 opacity-45">
@@ -58,39 +59,7 @@ export default function NeutralSkinToneColors() {
           <div className="absolute right-[-5rem] top-10 h-72 w-72 rounded-full bg-[#d8c6b4]/30 blur-3xl" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 pt-6 md:px-10 lg:px-16">
-          <header className="flex items-center justify-between border-b border-[#e8ddd2]/80 pb-4">
-            <Link
-              to="/"
-              className="text-sm font-medium uppercase tracking-[0.22em] text-[#9b7458] transition hover:opacity-70"
-            >
-              RedLipsticks.com
-            </Link>
-
-            <nav className="hidden gap-8 text-sm text-[#746458] md:flex">
-              <Link to="/" className="transition hover:text-[#9b7458]">
-                Home
-              </Link>
-
-              <Link
-                to="/warm-skin-tone-colors"
-                className="transition hover:text-[#9b7458]"
-              >
-                Warm Tones
-              </Link>
-
-              <Link
-                to="/cool-skin-tone-colors"
-                className="transition hover:text-[#9b7458]"
-              >
-                Cool Tones
-              </Link>
-            </nav>
-          </header>
-        </div>
-
         <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-14 md:px-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20 lg:px-16 lg:py-24">
-          {/* LEFT */}
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-[#9b7458]">
               Neutral Undertone Guide
@@ -141,7 +110,6 @@ export default function NeutralSkinToneColors() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
           <div className="relative">
             <div className="rounded-[2.25rem] border border-[#e8ddd2] bg-white/85 p-5 shadow-[0_26px_72px_rgba(72,56,44,0.08)] backdrop-blur">
               <div className="rounded-[2rem] bg-gradient-to-br from-[#f3e9df] via-[#fcf8f4] to-[#eee4da] p-4 md:p-5">
@@ -216,10 +184,7 @@ export default function NeutralSkinToneColors() {
       </section>
 
       {/* CHART */}
-      <section
-        id="chart"
-        className="border-y border-[#e8ddd2] bg-[#fdfaf7]"
-      >
+      <section id="chart" className="border-y border-[#e8ddd2] bg-[#fdfaf7]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#9b7458]">
@@ -239,7 +204,6 @@ export default function NeutralSkinToneColors() {
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {/* Clothing */}
             <article className="rounded-[2rem] border border-[#e8ddd2] bg-white p-7 shadow-[0_18px_46px_rgba(72,56,44,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b28f76]">
                 Clothing Colors
@@ -267,7 +231,6 @@ export default function NeutralSkinToneColors() {
               </p>
             </article>
 
-            {/* Lipsticks */}
             <article className="rounded-[2rem] border border-[#e8ddd2] bg-white p-7 shadow-[0_18px_46px_rgba(72,56,44,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b28f76]">
                 Best Red Lipsticks
@@ -295,7 +258,6 @@ export default function NeutralSkinToneColors() {
               </p>
             </article>
 
-            {/* Jewelry */}
             <article className="rounded-[2rem] border border-[#e8ddd2] bg-white p-7 shadow-[0_18px_46px_rgba(72,56,44,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b28f76]">
                 Jewelry Metals
@@ -387,6 +349,6 @@ export default function NeutralSkinToneColors() {
           </div>
         </div>
       </section>
-    </div>
+    </PageLayout>
   );
 }

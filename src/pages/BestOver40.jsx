@@ -1,8 +1,7 @@
 import { Link } from "react-router";
+import PageLayout from "../components/PageLayout";
 
 export default function BestOver40() {
-  const year = new Date().getFullYear();
-
   const lipsticks = [
     {
       name: "Blue-based satin red",
@@ -45,7 +44,7 @@ export default function BestOver40() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#faf7f2] text-[#2d1e1e]">
+    <PageLayout bgClassName="bg-[#faf7f2] text-[#2d1e1e]">
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-[#ead9d2] bg-gradient-to-b from-[#fffdf9] via-[#faf7f2] to-[#f8f0eb]">
         <div className="absolute inset-0 opacity-40">
@@ -250,25 +249,6 @@ export default function BestOver40() {
           </aside>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-[#ead9d2] bg-[#fffaf6]">
-        <div className="mx-auto max-w-6xl px-6 py-10 text-center md:px-10 lg:px-16">
-          <div className="flex flex-col items-center gap-3">
-            <img
-              src="/kiss.png"
-              alt="Red Lipsticks logo"
-              className="h-auto w-14 opacity-95"
-            />
-            <p className="text-sm tracking-[0.06em] text-[#6f5555]">
-              © {year} RedLipsticks.com. All rights reserved.
-            </p>
-            <p className="text-xs uppercase tracking-[0.18em] text-[#9f102d]">
-              Created by PamelaJTerrell.com
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </PageLayout>
   );
 }
