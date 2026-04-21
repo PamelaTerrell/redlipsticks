@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import PageLayout from "../components/PageLayout";
+import UndertoneColorChart from "../components/UndertoneColorChart";
 
 export default function WarmSkinToneColors() {
   const clothingColors = [
@@ -42,6 +43,53 @@ export default function WarmSkinToneColors() {
     "Blue-heavy reds may feel sharper or less natural than warm reds.",
     "Cool grays can sometimes mute the natural glow of warm undertones.",
   ];
+
+  const warmColorGroups = [
+  {
+    category: "Neutrals",
+    colors: [
+      { name: "Cream", hex: "#F2E2C9" },
+      { name: "Camel", hex: "#B88A5A" },
+      { name: "Warm Beige", hex: "#C7A07A" },
+      { name: "Chocolate", hex: "#5E3A2C" },
+      { name: "Olive Brown", hex: "#6C5A3B" },
+      { name: "Honey", hex: "#D1A35A" },
+    ],
+  },
+  {
+    category: "Pinks & Reds",
+    colors: [
+      { name: "Coral", hex: "#D96C5F" },
+      { name: "Tomato Red", hex: "#C63D2F" },
+      { name: "Brick", hex: "#9E3D2E" },
+      { name: "Terracotta", hex: "#B85C38" },
+      { name: "Rust", hex: "#A14D33" },
+      { name: "Warm Rose", hex: "#C9796B" },
+    ],
+  },
+  {
+    category: "Yellows, Greens & Teals",
+    colors: [
+      { name: "Mustard", hex: "#B88B2C" },
+      { name: "Olive", hex: "#6E6B2F" },
+      { name: "Moss", hex: "#6A7A3C" },
+      { name: "Marigold", hex: "#D89A2B" },
+      { name: "Warm Teal", hex: "#2E6F6B" },
+      { name: "Turquoise", hex: "#2E8C82" },
+    ],
+  },
+  {
+    category: "Metallics & Rich Accents",
+    colors: [
+      { name: "Gold", hex: "#C8A25A" },
+      { name: "Bronze", hex: "#8C6239" },
+      { name: "Copper", hex: "#B4683A" },
+      { name: "Rose Gold", hex: "#C98B74" },
+      { name: "Peach", hex: "#E7A189" },
+      { name: "Paprika", hex: "#A84A2E" },
+    ],
+  },
+];
 
   return (
     <PageLayout bgClassName="bg-[#fbf6ef] text-[#34241b]">
@@ -281,6 +329,14 @@ export default function WarmSkinToneColors() {
           </div>
         </div>
       </section>
+
+      <UndertoneColorChart
+  eyebrow="Full Color Chart"
+  title="The full color palette for warm tones"
+  description="These shades often harmonize beautifully with golden, peachy, yellow-based, and sunlit undertones. Use this palette to guide lipstick, clothing, jewelry, and overall color choices."
+  accent="#a25524"
+  groups={warmColorGroups}
+/>
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 lg:px-16 lg:pb-20">
