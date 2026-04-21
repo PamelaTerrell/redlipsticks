@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import PageLayout from "../components/PageLayout";
+import UndertoneColorChart from "../components/UndertoneColorChart";
 
 export default function NeutralSkinToneColors() {
   const clothingColors = [
@@ -49,6 +50,53 @@ export default function NeutralSkinToneColors() {
     "Very orange-heavy tones can sometimes pull too warm.",
     "The most flattering neutral palette is usually balanced, elegant, and softly refined rather than extreme.",
   ];
+
+  const neutralColorGroups = [
+  {
+    category: "Neutrals",
+    colors: [
+      { name: "Soft White", hex: "#F5F1EA" },
+      { name: "Mushroom", hex: "#9C8B84" },
+      { name: "Taupe", hex: "#9A8577" },
+      { name: "Stone", hex: "#B7A89A" },
+      { name: "Cocoa", hex: "#6B4A3C" },
+      { name: "Greige", hex: "#B3A79D" },
+    ],
+  },
+  {
+    category: "Pinks & Reds",
+    colors: [
+      { name: "True Red", hex: "#B0303C" },
+      { name: "Soft Berry", hex: "#9A4F63" },
+      { name: "Dusty Rose", hex: "#B67C86" },
+      { name: "Balanced Rose", hex: "#C4878E" },
+      { name: "Muted Red", hex: "#B6494E" },
+      { name: "Rosewood", hex: "#8A5A5B" },
+    ],
+  },
+  {
+    category: "Greens, Blues & Purples",
+    colors: [
+      { name: "Sage", hex: "#8A9A7B" },
+      { name: "Teal", hex: "#3D6F73" },
+      { name: "Soft Navy", hex: "#465B78" },
+      { name: "Eucalyptus", hex: "#7A9388" },
+      { name: "Mauve", hex: "#9D7C8F" },
+      { name: "Soft Plum", hex: "#7C5C6B" },
+    ],
+  },
+  {
+    category: "Metallics",
+    colors: [
+      { name: "Silver", hex: "#C9CDD3" },
+      { name: "Gold", hex: "#C8A25A" },
+      { name: "Rose Gold", hex: "#C98B74" },
+      { name: "Champagne", hex: "#D8C3A3" },
+      { name: "Pewter", hex: "#8A8D91" },
+      { name: "Mixed Metals", hex: "#B7A18B" },
+    ],
+  },
+];
 
   return (
     <PageLayout bgClassName="bg-[#f8f3ee] text-[#332821]">
@@ -311,6 +359,14 @@ export default function NeutralSkinToneColors() {
           </div>
         </div>
       </section>
+
+      <UndertoneColorChart
+  eyebrow="Full Color Chart"
+  title="The full color palette for neutral tones"
+  description="Neutral undertones often look strongest in balanced, softly refined shades that do not lean too icy or too warm. This palette is designed to guide flexible, elegant color choices across lipstick, fashion, and accessories."
+  accent="#9b7458"
+  groups={neutralColorGroups}
+/>
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 lg:px-16 lg:pb-20">
