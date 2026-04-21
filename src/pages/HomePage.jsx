@@ -91,7 +91,7 @@ export default function HomePage() {
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5b4343] md:text-2xl md:leading-9">
               Elegant beauty and color guidance for women who want glamour that
-              feels polished, flattering, and beautifully grown.
+              feels polished, flattering, and effortlessly refined.
             </p>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#7b6060] md:text-lg">
