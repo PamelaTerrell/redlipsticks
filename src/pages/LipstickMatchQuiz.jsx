@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router";
 import PageLayout from "../components/PageLayout";
 
@@ -9,125 +9,170 @@ const questions = [
       "When you look at the veins on your wrist in natural light, what do they usually look like?",
     options: [
       {
-        label: "More blue or purple",
-        scores: { classicCool: 2, balancedSignature: 1 },
+        label: "Mostly blue or purple",
+        effects: { undertoneCool: 3, smileBrightening: 1 },
       },
       {
-        label: "More green or olive",
-        scores: { warmRadiant: 2, boldRadiant: 1 },
+        label: "Mostly green or olive",
+        effects: { undertoneWarm: 3 },
       },
       {
-        label: "Hard to tell, or a mix of both",
-        scores: { balancedSignature: 2, softEveryday: 1 },
+        label: "A mix, or hard to tell",
+        effects: { undertoneNeutral: 3, softPreference: 1 },
       },
     ],
   },
   {
-    id: "white-test",
+    id: "white-ivory",
     question:
       "Which tends to flatter your skin more: crisp white or creamy ivory?",
     options: [
       {
         label: "Crisp white",
-        scores: { classicCool: 2, softEveryday: 1 },
+        effects: { undertoneCool: 3, highContrast: 1 },
       },
       {
         label: "Creamy ivory",
-        scores: { warmRadiant: 2, boldRadiant: 1 },
+        effects: { undertoneWarm: 3, softPreference: 1 },
       },
       {
         label: "Both can work pretty well",
-        scores: { balancedSignature: 2, softEveryday: 1 },
+        effects: { undertoneNeutral: 3, balancedPreference: 1 },
       },
     ],
   },
   {
     id: "jewelry",
-    question: "Which jewelry usually flatters you most?",
+    question: "Which jewelry usually looks best on you?",
     options: [
       {
-        label: "Silver or white gold",
-        scores: { classicCool: 2, balancedSignature: 1 },
+        label: "Silver, white gold, or platinum",
+        effects: { undertoneCool: 3, elegantClassic: 1 },
       },
       {
-        label: "Gold or rose gold",
-        scores: { warmRadiant: 2, boldRadiant: 1 },
+        label: "Yellow gold, bronze, or copper",
+        effects: { undertoneWarm: 3, boldWarmth: 1 },
       },
       {
-        label: "Both look good on me",
-        scores: { balancedSignature: 2, softEveryday: 1 },
+        label: "Both gold and silver can look good",
+        effects: { undertoneNeutral: 3, balancedPreference: 1 },
       },
     ],
   },
   {
-    id: "colors",
-    question: "Which clothing colors tend to make your skin look its best?",
+    id: "sun-reaction",
+    question: "How does your skin usually react to sun exposure?",
     options: [
       {
-        label: "Berry, navy, emerald, icy pink",
-        scores: { classicCool: 2, softEveryday: 1 },
+        label: "I tend to burn first and tan slowly",
+        effects: { undertoneCool: 2, fairLightDepth: 1 },
       },
       {
-        label: "Camel, olive, coral, terracotta",
-        scores: { warmRadiant: 2, boldRadiant: 1 },
+        label: "I tan fairly easily",
+        effects: { undertoneWarm: 2, mediumDeepDepth: 1 },
       },
       {
-        label: "Taupe, soft white, dusty rose, mixed tones",
-        scores: { balancedSignature: 2, softEveryday: 1 },
+        label: "It depends / a bit of both",
+        effects: { undertoneNeutral: 2 },
+      },
+    ],
+  },
+  {
+    id: "depth",
+    question: "Which description feels closest to your overall coloring depth?",
+    options: [
+      {
+        label: "Fair to light",
+        effects: { fairLightDepth: 3, softPreference: 1 },
+      },
+      {
+        label: "Light-medium to medium",
+        effects: { mediumDepth: 3, balancedPreference: 1 },
+      },
+      {
+        label: "Tan to deep",
+        effects: { mediumDeepDepth: 2, deepDepth: 2, boldWarmth: 1 },
+      },
+      {
+        label: "Rich deep",
+        effects: { deepDepth: 4, boldStatement: 2 },
+      },
+    ],
+  },
+  {
+    id: "contrast",
+    question:
+      "How much natural contrast do you have between your skin, hair, brows, and eyes?",
+    options: [
+      {
+        label: "Soft contrast",
+        effects: { softContrast: 3, softPreference: 2 },
+      },
+      {
+        label: "Medium contrast",
+        effects: { mediumContrast: 3, balancedPreference: 2 },
+      },
+      {
+        label: "High contrast",
+        effects: { highContrast: 3, boldStatement: 2, elegantClassic: 1 },
+      },
+    ],
+  },
+  {
+    id: "clothing-colors",
+    question: "Which clothing colors usually make you look most alive?",
+    options: [
+      {
+        label: "Berry, navy, emerald, icy pink, charcoal",
+        effects: { undertoneCool: 2, elegantClassic: 1, smileBrightening: 1 },
+      },
+      {
+        label: "Camel, olive, coral, terracotta, chocolate",
+        effects: { undertoneWarm: 2, boldWarmth: 1 },
+      },
+      {
+        label: "Taupe, rose, soft white, teal, mushroom",
+        effects: { undertoneNeutral: 2, balancedPreference: 2 },
       },
     ],
   },
   {
     id: "red-family",
-    question: "Which red lipstick family feels most like you?",
+    question: "Which red lipstick family feels most naturally like you?",
     options: [
       {
-        label: "Blue-red or cherry red",
-        scores: { classicCool: 2, balancedSignature: 1 },
+        label: "Blue-red, cherry, cranberry, berry-red",
+        effects: { undertoneCool: 2, smileBrightening: 2, elegantClassic: 1 },
       },
       {
-        label: "Orange-red or brick red",
-        scores: { warmRadiant: 2, boldRadiant: 1 },
+        label: "Orange-red, brick, terracotta, rust",
+        effects: { undertoneWarm: 2, boldWarmth: 2 },
       },
       {
-        label: "Soft true red or balanced red",
-        scores: { balancedSignature: 2, softEveryday: 1 },
+        label: "True red, softened red, balanced red",
+        effects: { undertoneNeutral: 2, balancedPreference: 2 },
       },
     ],
   },
   {
-    id: "intensity",
-    question: "How bold do you like your lipstick to feel?",
+    id: "finish",
+    question: "Which lipstick finish do you usually prefer?",
     options: [
       {
-        label: "Polished and classic",
-        scores: { classicCool: 2, balancedSignature: 1 },
+        label: "Satin",
+        effects: { satinFinish: 3, elegantClassic: 1 },
       },
       {
-        label: "Warm, glowing, and expressive",
-        scores: { warmRadiant: 2, boldRadiant: 2 },
+        label: "Cream",
+        effects: { creamFinish: 3, softPreference: 1 },
       },
       {
-        label: "Soft, wearable, and versatile",
-        scores: { softEveryday: 2, balancedSignature: 1 },
-      },
-    ],
-  },
-  {
-    id: "priority",
-    question: "What do you want your red lipstick to do most?",
-    options: [
-      {
-        label: "Make my smile look brighter",
-        scores: { classicCool: 2, balancedSignature: 1 },
+        label: "Matte",
+        effects: { matteFinish: 3, boldStatement: 1 },
       },
       {
-        label: "Add warmth and life to my face",
-        scores: { warmRadiant: 2, boldRadiant: 1 },
-      },
-      {
-        label: "Feel balanced and easy to wear",
-        scores: { balancedSignature: 2, softEveryday: 2 },
+        label: "Gloss or shine",
+        effects: { glossFinish: 3, softPreference: 1, boldWarmth: 1 },
       },
     ],
   },
@@ -137,96 +182,208 @@ const questions = [
     options: [
       {
         label: "Timeless, refined, elegant",
-        scores: { classicCool: 2, balancedSignature: 1 },
+        effects: { elegantClassic: 3, satinFinish: 1 },
       },
       {
-        label: "Warm, glowy, confident",
-        scores: { warmRadiant: 2, boldRadiant: 1 },
+        label: "Soft, feminine, understated",
+        effects: { softPreference: 3, creamFinish: 1 },
       },
       {
-        label: "Chic, easy, understated",
-        scores: { softEveryday: 2, balancedSignature: 1 },
+        label: "Warm, glowy, expressive",
+        effects: { boldWarmth: 3, glossFinish: 1 },
+      },
+      {
+        label: "Bold, polished, statement-making",
+        effects: { boldStatement: 3, matteFinish: 1, highContrast: 1 },
+      },
+    ],
+  },
+  {
+    id: "priority",
+    question: "What do you most want your red lipstick to do for you?",
+    options: [
+      {
+        label: "Make my smile look brighter",
+        effects: { smileBrightening: 4, undertoneCool: 1 },
+      },
+      {
+        label: "Feel easy and flattering for everyday",
+        effects: { softPreference: 3, creamFinish: 1, balancedPreference: 1 },
+      },
+      {
+        label: "Look polished and elevated",
+        effects: { elegantClassic: 3, satinFinish: 1 },
+      },
+      {
+        label: "Make a statement",
+        effects: { boldStatement: 3, matteFinish: 1, highContrast: 1 },
+      },
+    ],
+  },
+  {
+    id: "comfort",
+    question: "How do you want the red to feel on the face overall?",
+    options: [
+      {
+        label: "Smooth, graceful, and wearable",
+        effects: { softPreference: 2, creamFinish: 1, satinFinish: 1 },
+      },
+      {
+        label: "Classic and polished",
+        effects: { elegantClassic: 2, satinFinish: 2 },
+      },
+      {
+        label: "Bold and dramatic",
+        effects: { boldStatement: 2, matteFinish: 1, highContrast: 1 },
+      },
+      {
+        label: "Warm, lively, and glowing",
+        effects: { boldWarmth: 2, glossFinish: 1, undertoneWarm: 1 },
       },
     ],
   },
 ];
 
-const results = {
-  classicCool: {
-    title: "Classic Cool Red",
-    subtitle: "Your signature red is crisp, polished, and timeless.",
-    description:
-      "You are most at home in reds that feel refined and brightening. Blue-based reds, cherry reds, and cooler classic reds are likely to flatter you beautifully and make the whole face look more polished.",
-    lipstickFamily: ["Blue-red", "Cherry red", "Cranberry", "Classic cool red"],
-    bestLinks: [
-      { label: "Cool Skin Tone Guide", to: "/cool-skin-tone-colors" },
-      {
-        label: "Red Lipsticks That Make Teeth Look Whiter",
-        to: "/red-lipsticks-that-make-teeth-look-whiter",
-      },
-      { label: "Blue-Red vs Orange-Red", to: "/blue-red-vs-orange-red" },
-    ],
-  },
-  warmRadiant: {
-    title: "Warm Radiant Red",
-    subtitle: "Your best reds bring warmth, glow, and richness.",
-    description:
-      "You are likely flattered by reds that feel sunlit, rich, and inviting. Orange-reds, brick reds, terracotta reds, and warm classic reds can make your complexion look vibrant and beautifully alive.",
-    lipstickFamily: ["Orange-red", "Brick red", "Tomato red", "Terracotta red"],
-    bestLinks: [
-      { label: "Warm Skin Tone Guide", to: "/warm-skin-tone-colors" },
-      { label: "Blue-Red vs Orange-Red", to: "/blue-red-vs-orange-red" },
-      { label: "Best Red Lipsticks Over 40", to: "/best-red-lipsticks-over-40" },
-    ],
-  },
-  balancedSignature: {
-    title: "Balanced Signature Red",
-    subtitle: "You shine in reds that feel elegant and flexible.",
-    description:
-      "You likely have the ability to wear both warm and cool influences, but your best reds feel balanced rather than extreme. True reds, softened berry reds, and refined classic reds may suit you especially well.",
-    lipstickFamily: ["True red", "Soft red", "Balanced red", "Refined berry red"],
-    bestLinks: [
-      { label: "Neutral Skin Tone Guide", to: "/neutral-skin-tone-colors" },
-      { label: "Blue-Red vs Orange-Red", to: "/blue-red-vs-orange-red" },
-      { label: "Best Red Lipsticks Over 40", to: "/best-red-lipsticks-over-40" },
-    ],
-  },
-  softEveryday: {
-    title: "Soft Everyday Red",
-    subtitle: "Your ideal red is polished, wearable, and quietly flattering.",
-    description:
-      "You may prefer reds that feel easy, graceful, and versatile instead of loud. Rose-reds, softened true reds, and elegant satin reds are likely to feel especially beautiful on you.",
-    lipstickFamily: ["Rose-red", "Soft true red", "Satin red", "Gentle berry red"],
-    bestLinks: [
-      { label: "Best Red Lipsticks Over 40", to: "/best-red-lipsticks-over-40" },
-      { label: "Neutral Skin Tone Guide", to: "/neutral-skin-tone-colors" },
-      {
-        label: "Red Lipsticks That Make Teeth Look Whiter",
-        to: "/red-lipsticks-that-make-teeth-look-whiter",
-      },
-    ],
-  },
-  boldRadiant: {
-    title: "Bold Radiant Red",
-    subtitle: "Your red should feel warm, expressive, and unforgettable.",
-    description:
-      "You may look best in reds that bring warmth, glow, and personality. Vibrant warm reds, richer orange-reds, and statement brick reds can help you look energized and striking.",
-    lipstickFamily: ["Vivid warm red", "Orange-red", "Brick red", "Rust red"],
-    bestLinks: [
-      { label: "Warm Skin Tone Guide", to: "/warm-skin-tone-colors" },
-      { label: "Blue-Red vs Orange-Red", to: "/blue-red-vs-orange-red" },
-      { label: "Best Red Lipsticks Over 40", to: "/best-red-lipsticks-over-40" },
-    ],
-  },
+const productLibrary = {
+  classicCool: [
+    {
+      name: "MAC Ruby Woo",
+      note: "A vivid blue-red matte with a classic smile-brightening effect.",
+      tier: "Prestige",
+      retailer: "MAC",
+      link: "https://www.maccosmetics.com/product/13854/52593/products/makeup/lips/lipstick/retro-matte-lipstick",
+    },
+    {
+      name: "NARS Dragon Girl",
+      note: "A cool bright red with lively contrast and strong visual clarity.",
+      tier: "Prestige",
+      retailer: "Sephora",
+      link: "https://www.sephora.com/product/powermatte-lipstick-dragon-girl-0-8-gr-P508342",
+    },
+    {
+      name: "Dior Rouge Dior 999",
+      note: "A polished classic red if you want something refined and iconic.",
+      tier: "Luxury",
+      retailer: "Sephora",
+      link: "https://www.sephora.com/product/dior-rouge-dior-lipstick-P467760",
+    },
+  ],
+  warmRadiant: [
+    {
+      name: "Dior Rouge Dior 999",
+      note: "A rich classic red that can feel luminous and vibrant on warmer coloring.",
+      tier: "Luxury",
+      retailer: "Sephora",
+      link: "https://www.sephora.com/product/dior-rouge-dior-lipstick-P467760",
+    },
+    {
+      name: "Maybelline SuperStay Matte Ink in Pioneer",
+      note: "A strong statement red with warmth and long wear.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/superstay-matte-ink-liquid-lipstick-xlsImpprod16211185?pr_rd_page=3&sku=2537824",
+    },
+    {
+      name: "L'Oréal Colour Riche True Red",
+      note: "A creamy classic option with a softer, wearable finish.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/colour-riche-original-satin-lipstick-2681?sku=2117582",
+    },
+  ],
+  balancedSignature: [
+    {
+      name: "Dior Rouge Dior 999",
+      note: "A balanced iconic red that works beautifully as a signature shade.",
+      tier: "Luxury",
+      retailer: "Sephora",
+      link: "https://www.sephora.com/product/dior-rouge-dior-lipstick-P467760",
+    },
+    {
+      name: "Revlon Cherries in the Snow",
+      note: "A classic berry-red that often suits balanced coloring especially well.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/super-lustrous-lipstick-xlsImpprod2940211?sku=1741444",
+    },
+    {
+      name: "L'Oréal Colour Riche True Red",
+      note: "A softer satin red for polished everyday flexibility.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/colour-riche-original-satin-lipstick-2681?sku=2117582",
+    },
+  ],
+  softEveryday: [
+    {
+      name: "L'Oréal Colour Riche True Red",
+      note: "A creamy satin option that feels easier and more forgiving.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/colour-riche-original-satin-lipstick-2681?sku=2117582",
+    },
+    {
+      name: "Revlon Cherries in the Snow",
+      note: "A softer berry-leaning classic with vintage polish.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/super-lustrous-lipstick-xlsImpprod2940211?sku=1741444",
+    },
+    {
+      name: "Dior Rouge Dior 999",
+      note: "A more elevated option when you want a refined, polished finish.",
+      tier: "Luxury",
+      retailer: "Sephora",
+      link: "https://www.sephora.com/product/dior-rouge-dior-lipstick-P467760",
+    },
+  ],
+  boldRadiant: [
+    {
+      name: "Maybelline SuperStay Matte Ink in Pioneer",
+      note: "A high-impact red with strong wear and presence.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/superstay-matte-ink-liquid-lipstick-xlsImpprod16211185?pr_rd_page=3&sku=2537824",
+    },
+    {
+      name: "MAC Ruby Woo",
+      note: "A statement red if you want strong glamour and edge.",
+      tier: "Prestige",
+      retailer: "MAC",
+      link: "https://www.maccosmetics.com/product/13854/52593/products/makeup/lips/lipstick/retro-matte-lipstick",
+    },
+    {
+      name: "Dior Rouge Dior 999",
+      note: "A bold but still luxurious classic choice.",
+      tier: "Luxury",
+      retailer: "Sephora",
+      link: "https://www.sephora.com/product/dior-rouge-dior-lipstick-P467760",
+    },
+  ],
 };
 
-function getWinningResult(answers) {
+function getAxisTotals(answers) {
   const totals = {
-    classicCool: 0,
-    warmRadiant: 0,
-    balancedSignature: 0,
-    softEveryday: 0,
-    boldRadiant: 0,
+    undertoneCool: 0,
+    undertoneWarm: 0,
+    undertoneNeutral: 0,
+    fairLightDepth: 0,
+    mediumDepth: 0,
+    mediumDeepDepth: 0,
+    deepDepth: 0,
+    softContrast: 0,
+    mediumContrast: 0,
+    highContrast: 0,
+    satinFinish: 0,
+    creamFinish: 0,
+    matteFinish: 0,
+    glossFinish: 0,
+    elegantClassic: 0,
+    softPreference: 0,
+    boldWarmth: 0,
+    boldStatement: 0,
+    balancedPreference: 0,
+    smileBrightening: 0,
   };
 
   questions.forEach((question) => {
@@ -234,13 +391,202 @@ function getWinningResult(answers) {
     if (selectedIndex == null) return;
 
     const option = question.options[selectedIndex];
-    Object.entries(option.scores).forEach(([key, value]) => {
+    Object.entries(option.effects).forEach(([key, value]) => {
       totals[key] += value;
     });
   });
 
-  const sorted = Object.entries(totals).sort((a, b) => b[1] - a[1]);
-  return sorted[0][0];
+  return totals;
+}
+
+function pickUndertone(totals) {
+  const entries = [
+    ["cool", totals.undertoneCool],
+    ["warm", totals.undertoneWarm],
+    ["neutral", totals.undertoneNeutral],
+  ].sort((a, b) => b[1] - a[1]);
+
+  return entries[0][0];
+}
+
+function pickDepth(totals) {
+  const entries = [
+    ["fair-light", totals.fairLightDepth],
+    ["medium", totals.mediumDepth],
+    ["medium-deep", totals.mediumDeepDepth],
+    ["deep", totals.deepDepth],
+  ].sort((a, b) => b[1] - a[1]);
+
+  return entries[0][0];
+}
+
+function pickContrast(totals) {
+  const entries = [
+    ["soft", totals.softContrast],
+    ["medium", totals.mediumContrast],
+    ["high", totals.highContrast],
+  ].sort((a, b) => b[1] - a[1]);
+
+  return entries[0][0];
+}
+
+function pickFinish(totals) {
+  const entries = [
+    ["satin", totals.satinFinish],
+    ["cream", totals.creamFinish],
+    ["matte", totals.matteFinish],
+    ["gloss", totals.glossFinish],
+  ].sort((a, b) => b[1] - a[1]);
+
+  return entries[0][0];
+}
+
+function pickPrimaryStyle(totals) {
+  const entries = [
+    ["elegantClassic", totals.elegantClassic],
+    ["softPreference", totals.softPreference],
+    ["boldWarmth", totals.boldWarmth],
+    ["boldStatement", totals.boldStatement],
+    ["balancedPreference", totals.balancedPreference],
+  ].sort((a, b) => b[1] - a[1]);
+
+  return entries[0][0];
+}
+
+function determineProfile(totals) {
+  const undertone = pickUndertone(totals);
+  const depth = pickDepth(totals);
+  const contrast = pickContrast(totals);
+  const finish = pickFinish(totals);
+  const style = pickPrimaryStyle(totals);
+  const smilePriority = totals.smileBrightening >= 4;
+
+  if (
+    undertone === "cool" &&
+    (style === "elegantClassic" || smilePriority || contrast === "high")
+  ) {
+    return "classicCool";
+  }
+
+  if (
+    undertone === "warm" &&
+    (style === "boldWarmth" || style === "boldStatement" || depth !== "fair-light")
+  ) {
+    return "warmRadiant";
+  }
+
+  if (
+    undertone === "neutral" &&
+    (style === "balancedPreference" || contrast === "medium")
+  ) {
+    return "balancedSignature";
+  }
+
+  if (
+    style === "softPreference" ||
+    finish === "cream" ||
+    contrast === "soft"
+  ) {
+    return "softEveryday";
+  }
+
+  if (style === "boldStatement" || contrast === "high") {
+    return "boldRadiant";
+  }
+
+  if (undertone === "warm") return "warmRadiant";
+  if (undertone === "cool") return "classicCool";
+  return "balancedSignature";
+}
+
+function buildProfile(profileKey, totals) {
+  const undertone = pickUndertone(totals);
+  const depth = pickDepth(totals);
+  const contrast = pickContrast(totals);
+  const finish = pickFinish(totals);
+
+  const base = {
+    classicCool: {
+      title: "Polished Cool Reds",
+      subtitle:
+        "Your most flattering direction likely leans cooler, clearer, and more refined.",
+      description:
+        "Based on your answers, you may look especially strong in reds with blue-based, cherry, or cranberry influence rather than orange-heavy warmth. This does not guarantee a single perfect shade, but it gives you a highly promising direction to start from.",
+      shadeFamilies: ["Blue-red", "Cherry red", "Cranberry", "Berry-red"],
+      pageLinks: [
+        { label: "Cool Skin Tone Guide", to: "/cool-skin-tone-colors" },
+        {
+          label: "Red Lipsticks That Make Teeth Look Whiter",
+          to: "/red-lipsticks-that-make-teeth-look-whiter",
+        },
+        { label: "Blue-Red vs Orange-Red", to: "/blue-red-vs-orange-red" },
+      ],
+    },
+    warmRadiant: {
+      title: "Warm Radiant Reds",
+      subtitle:
+        "Your strongest direction likely leans warm, rich, and glowing.",
+      description:
+        "Your answers suggest that reds with warmth, richness, and radiance may feel especially flattering. Brick reds, terracotta-leaning reds, and richer warm classics are likely worth exploring before cooler, blue-heavy reds.",
+      shadeFamilies: ["Brick red", "Orange-red", "Terracotta red", "Warm classic red"],
+      pageLinks: [
+        { label: "Warm Skin Tone Guide", to: "/warm-skin-tone-colors" },
+        { label: "Blue-Red vs Orange-Red", to: "/blue-red-vs-orange-red" },
+        { label: "Best Red Lipsticks Over 40", to: "/best-red-lipsticks-over-40" },
+      ],
+    },
+    balancedSignature: {
+      title: "Balanced Signature Reds",
+      subtitle:
+        "Your best direction is likely elegant, flexible, and not too extreme.",
+      description:
+        "Your answers suggest you may wear both warm and cool influence fairly well, but your strongest reds likely feel balanced rather than highly icy or strongly orange. True reds, softened berry reds, and classic satin reds may be especially promising.",
+      shadeFamilies: ["True red", "Balanced red", "Soft berry red", "Classic red"],
+      pageLinks: [
+        { label: "Neutral Skin Tone Guide", to: "/neutral-skin-tone-colors" },
+        { label: "Blue-Red vs Orange-Red", to: "/blue-red-vs-orange-red" },
+        { label: "Best Red Lipsticks Over 40", to: "/best-red-lipsticks-over-40" },
+      ],
+    },
+    softEveryday: {
+      title: "Soft Everyday Reds",
+      subtitle:
+        "Your most flattering direction may be polished, wearable, and quietly refined.",
+      description:
+        "Your answers suggest you may prefer reds that feel easier, softer, and more graceful on the face rather than extremely sharp statement reds. Creamier finishes, satin textures, and softened red families may suit you especially well.",
+      shadeFamilies: ["Soft true red", "Rose-red", "Gentle berry red", "Satin red"],
+      pageLinks: [
+        { label: "Best Red Lipsticks Over 40", to: "/best-red-lipsticks-over-40" },
+        { label: "Neutral Skin Tone Guide", to: "/neutral-skin-tone-colors" },
+        {
+          label: "Red Lipsticks That Make Teeth Look Whiter",
+          to: "/red-lipsticks-that-make-teeth-look-whiter",
+        },
+      ],
+    },
+    boldRadiant: {
+      title: "Bold Statement Reds",
+      subtitle:
+        "Your strongest direction may be richer, stronger, and more dramatic.",
+      description:
+        "Your answers suggest you may carry statement reds especially well, particularly when the shade has enough richness or clarity to stand up to your natural presence. High-impact classics, richer reds, and stronger finishes are likely worth testing.",
+      shadeFamilies: ["Statement red", "Rich classic red", "Bold cherry red", "Deep vivid red"],
+      pageLinks: [
+        { label: "Warm Skin Tone Guide", to: "/warm-skin-tone-colors" },
+        { label: "Blue-Red vs Orange-Red", to: "/blue-red-vs-orange-red" },
+        { label: "Best Red Lipsticks Over 40", to: "/best-red-lipsticks-over-40" },
+      ],
+    },
+  }[profileKey];
+
+  return {
+    ...base,
+    undertone,
+    depth,
+    contrast,
+    finish,
+    products: productLibrary[profileKey],
+  };
 }
 
 export default function LipstickMatchQuiz() {
@@ -251,8 +597,12 @@ export default function LipstickMatchQuiz() {
   const answeredCount = Object.keys(answers).length;
   const isComplete = answeredCount === questions.length;
 
-  const winningKey = submitted && isComplete ? getWinningResult(answers) : null;
-  const result = winningKey ? results[winningKey] : null;
+  const result = useMemo(() => {
+    if (!submitted || !isComplete) return null;
+    const totals = getAxisTotals(answers);
+    const profileKey = determineProfile(totals);
+    return buildProfile(profileKey, totals);
+  }, [answers, submitted, isComplete]);
 
   function handleSelect(questionId, optionIndex) {
     setAnswers((prev) => ({
@@ -272,36 +622,13 @@ export default function LipstickMatchQuiz() {
         behavior: "smooth",
         block: "center",
       });
-    }, 100);
+    }, 120);
   }
 
   function handleRetake() {
     setAnswers({});
     setSubmitted(false);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }
-
-  if (submitted && isComplete && !result) {
-    return (
-      <PageLayout bgClassName="bg-[#faf7f2] text-[#2d1e1e]">
-        <section className="mx-auto max-w-4xl px-6 py-20 md:px-10 lg:px-16">
-          <div className="rounded-[2rem] border border-[#ead9d2] bg-white p-8 shadow-[0_20px_55px_rgba(64,34,34,0.05)]">
-            <p className="text-sm text-[#9f102d]">
-              Something went wrong with the quiz result.
-            </p>
-            <p className="mt-3 text-[#5f4949]">Please retake the quiz.</p>
-
-            <button
-              type="button"
-              onClick={handleRetake}
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-[#9f102d] px-6 py-3 text-sm font-medium text-white"
-            >
-              Retake Quiz
-            </button>
-          </div>
-        </section>
-      </PageLayout>
-    );
   }
 
   return (
@@ -328,22 +655,22 @@ export default function LipstickMatchQuiz() {
             />
 
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#9f102d]">
-              Lipstick Match Quiz
+              Personalized Shade Match
             </p>
 
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[0.94] tracking-[-0.05em] text-[#2d1e1e] md:text-6xl lg:text-7xl">
-              Which red lipstick was made for you?
+              Find your most flattering red lipstick direction
             </h1>
 
             <p className="mt-7 max-w-3xl text-lg leading-8 text-[#5b4343] md:text-2xl md:leading-9">
-              Discover the red family that feels most flattering, polished, and
-              beautifully aligned with your coloring and style.
+              This personalized quiz combines undertone clues, coloring cues,
+              finish preferences, and style direction to help point you toward
+              red lipstick families that are likely to flatter you.
             </p>
 
             <p className="mt-6 max-w-3xl text-base leading-8 text-[#6f5555] md:text-lg">
-              This quick quiz combines undertone clues, color cues, and lipstick
-              preferences to help point you toward your most flattering red
-              direction.
+              It is meant to guide your starting point thoughtfully, not promise
+              a single perfect lipstick for every face.
             </p>
           </div>
         </div>
@@ -356,7 +683,7 @@ export default function LipstickMatchQuiz() {
         >
           <div className="rounded-[2.4rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_22px_58px_rgba(64,34,34,0.06)] md:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9f102d]">
-              Your result
+              Your red lipstick profile
             </p>
 
             <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
@@ -371,15 +698,113 @@ export default function LipstickMatchQuiz() {
               {result.description}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              {result.lipstickFamily.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[#ead9d2] bg-[#faf7f2] px-4 py-2 text-sm text-[#6f5555]"
-                >
-                  {item}
-                </span>
-              ))}
+            <div className="mt-8 grid gap-4 md:grid-cols-4">
+              <div className="rounded-[1.4rem] border border-[#ead9d2] bg-[#fffaf6] px-5 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c7a76c]">
+                  Undertone clue
+                </p>
+                <p className="mt-2 text-sm font-medium capitalize text-[#2d1e1e]">
+                  {result.undertone}
+                </p>
+              </div>
+
+              <div className="rounded-[1.4rem] border border-[#ead9d2] bg-[#fffaf6] px-5 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c7a76c]">
+                  Depth clue
+                </p>
+                <p className="mt-2 text-sm font-medium capitalize text-[#2d1e1e]">
+                  {result.depth}
+                </p>
+              </div>
+
+              <div className="rounded-[1.4rem] border border-[#ead9d2] bg-[#fffaf6] px-5 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c7a76c]">
+                  Contrast clue
+                </p>
+                <p className="mt-2 text-sm font-medium capitalize text-[#2d1e1e]">
+                  {result.contrast}
+                </p>
+              </div>
+
+              <div className="rounded-[1.4rem] border border-[#ead9d2] bg-[#fffaf6] px-5 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c7a76c]">
+                  Finish leaning
+                </p>
+                <p className="mt-2 text-sm font-medium capitalize text-[#2d1e1e]">
+                  {result.finish}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                Promising shade families
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-3">
+                {result.shadeFamilies.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-[#ead9d2] bg-[#faf7f2] px-4 py-2 text-sm text-[#6f5555]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                Recommended picks to explore
+              </p>
+
+              <div className="mt-5 grid gap-5">
+                {result.products.map((item) => (
+                  <div
+                    key={item.name}
+                    className="rounded-[1.5rem] border border-[#eee0da] bg-[#fffaf6] p-5 transition hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(64,34,34,0.05)]"
+                  >
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h3 className="text-lg font-semibold text-[#2d1e1e]">
+                          {item.name}
+                        </h3>
+
+                        <p className="mt-2 text-sm leading-7 text-[#5f4949]">
+                          {item.note}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 sm:justify-end">
+                        <span className="rounded-full bg-[#9f102d]/10 px-3 py-1 text-xs font-medium text-[#9f102d]">
+                          {item.tier}
+                        </span>
+                        <span className="rounded-full bg-[#efe4dc] px-3 py-1 text-xs font-medium text-[#6a5050]">
+                          {item.retailer}
+                        </span>
+                      </div>
+                    </div>
+
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored"
+                      className="mt-4 inline-flex rounded-full bg-[#9f102d] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#890d26]"
+                      onClick={() => {
+                        if (window.gtag) {
+                          window.gtag("event", "quiz_product_click", {
+                            product_name: item.name,
+                            retailer: item.retailer,
+                            quiz_profile: result.title,
+                          });
+                        }
+                      }}
+                    >
+                      View Pick
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -389,7 +814,7 @@ export default function LipstickMatchQuiz() {
                 </p>
 
                 <div className="mt-4 space-y-3 text-sm">
-                  {result.bestLinks.map((item) => (
+                  {result.pageLinks.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
@@ -408,6 +833,15 @@ export default function LipstickMatchQuiz() {
               >
                 Retake Quiz
               </button>
+            </div>
+
+            <div className="mt-10 rounded-[1.5rem] border border-[#ead9d2] bg-[#fffaf6] px-5 py-5">
+              <p className="text-sm leading-7 text-[#5f4949]">
+                These recommendations are style guidance based on common color
+                theory, undertone clues, and your quiz preferences. They are
+                meant to help you narrow the field intelligently, not guarantee
+                a single official best lipstick for every individual face.
+              </p>
             </div>
           </div>
         </section>
@@ -474,12 +908,12 @@ export default function LipstickMatchQuiz() {
                 disabled={!isComplete}
                 className="inline-flex items-center justify-center rounded-full bg-[#9f102d] px-7 py-3.5 text-sm font-medium text-white shadow-[0_14px_34px_rgba(159,16,45,0.22)] transition hover:-translate-y-0.5 hover:bg-[#890d26] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                See My Result
+                See My Profile
               </button>
 
               {!isComplete ? (
                 <p className="text-sm text-[#6f5555]">
-                  Answer all 8 questions to reveal your lipstick match.
+                  Answer all {questions.length} questions to reveal your profile.
                 </p>
               ) : null}
             </div>
