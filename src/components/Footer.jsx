@@ -16,6 +16,10 @@ export default function Footer() {
           </p>
 
           <p className="text-xs uppercase tracking-[0.18em] text-[#9f102d]">
+            A Stabile USA Brand
+          </p>
+
+          <p className="text-xs uppercase tracking-[0.18em] text-[#8e7474]">
             Created by{" "}
             <a
               href="https://pamelajterrell.com"
