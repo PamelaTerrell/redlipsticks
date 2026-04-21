@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import PageLayout from "../components/PageLayout";
+import UndertoneColorChart from "../components/UndertoneColorChart";
 
 export default function CoolSkinToneColors() {
   const clothingColors = [
@@ -37,6 +38,53 @@ export default function CoolSkinToneColors() {
     "Strong mustard or yellow-heavy tones may make the skin look less vibrant.",
     "Extremely earthy shades can sometimes feel heavy instead of brightening.",
   ];
+
+  const coolColorGroups = [
+  {
+    category: "Neutrals",
+    colors: [
+      { name: "True White", hex: "#F8F8F6" },
+      { name: "Charcoal", hex: "#4A4E57" },
+      { name: "Cool Taupe", hex: "#B7AAA1" },
+      { name: "Slate", hex: "#6E7C8C" },
+      { name: "Navy", hex: "#223A5E" },
+      { name: "Soft Gray", hex: "#C7CBD1" },
+    ],
+  },
+  {
+    category: "Pinks & Reds",
+    colors: [
+      { name: "Rose", hex: "#C97C8A" },
+      { name: "Berry", hex: "#8A3D5E" },
+      { name: "Raspberry", hex: "#B14D6E" },
+      { name: "Cranberry", hex: "#9E2F4F" },
+      { name: "Blue-Red", hex: "#A61E32" },
+      { name: "Cool Pink", hex: "#D8A3B5" },
+    ],
+  },
+  {
+    category: "Blues & Greens",
+    colors: [
+      { name: "Emerald", hex: "#0F6B5B" },
+      { name: "Sapphire", hex: "#2D4F8B" },
+      { name: "Icy Blue", hex: "#C9DDF2" },
+      { name: "Teal", hex: "#2C6C73" },
+      { name: "Pine", hex: "#355C4D" },
+      { name: "Sea Blue", hex: "#5E8FB1" },
+    ],
+  },
+  {
+    category: "Purples & Metallics",
+    colors: [
+      { name: "Plum", hex: "#6E3E5B" },
+      { name: "Amethyst", hex: "#8D6AAE" },
+      { name: "Orchid", hex: "#B784A7" },
+      { name: "Silver", hex: "#C9CDD3" },
+      { name: "Platinum", hex: "#D8DADF" },
+      { name: "White Gold", hex: "#E5E1D8" },
+    ],
+  },
+];
 
   return (
     <PageLayout bgClassName="bg-[#f7f5f8] text-[#2b2230]">
@@ -84,6 +132,8 @@ export default function CoolSkinToneColors() {
                 Explore neutral tones
               </Link>
             </div>
+
+            
 
             <div className="mt-9 flex flex-wrap gap-3 text-sm text-[#6f6275]">
               <span className="rounded-full border border-[#e6dde9] bg-white/80 px-4 py-2">
@@ -330,6 +380,16 @@ export default function CoolSkinToneColors() {
           </div>
         </div>
       </section>
+
+        <UndertoneColorChart
+  eyebrow="Full Color Chart"
+  title="The full color palette for cool tones"
+  description="These shades are often especially flattering on cool undertones because they echo pink, rosy, blue-based, and jewel-toned coloring. Use this as a visual guide for clothing, accessories, lipstick, and overall styling."
+  accent="#7b4f7f"
+  groups={coolColorGroups}
+/>
+
+    
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 lg:px-16 lg:pb-20">
