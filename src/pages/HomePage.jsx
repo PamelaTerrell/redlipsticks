@@ -3,27 +3,25 @@ import SiteHeader from "../components/SiteHeader";
 import Footer from "../components/Footer";
 
 export default function HomePage() {
-  const featuredGuides = [
+  const featuredGuide = {
+    title: "Red Lipsticks That Make Teeth Look Whiter",
+    description:
+      "The cool-toned reds, cherry shades, and berry reds that make the smile look brighter.",
+    to: "/red-lipsticks-that-make-teeth-look-whiter",
+  };
+
+  const secondaryGuides = [
     {
       title: "Best Red Lipsticks for Women Over 40",
       description:
         "Elegant, flattering reds that brighten the face without feeling harsh.",
       to: "/best-red-lipsticks-over-40",
-      live: true,
     },
     {
       title: "Blue-Red vs Orange-Red",
       description:
         "A simple guide to undertones so you can find the red that loves you back.",
       to: "/blue-red-vs-orange-red",
-      live: true,
-    },
-    {
-      title: "Red Lipsticks That Make Teeth Look Whiter",
-      description:
-        "The cool-toned reds, cherry shades, and berry reds that make the smile look brighter.",
-      to: "/red-lipsticks-that-make-teeth-look-whiter",
-      live: true,
     },
   ];
 
@@ -60,7 +58,7 @@ export default function HomePage() {
 
   const editorialNotes = [
     "Undertone guidance that makes beauty choices easier",
-    "Search-friendly lipstick content with affiliate potential",
+    "Interactive quiz experience for personalized lipstick direction",
     "Elegant visual branding that feels polished and memorable",
   ];
 
@@ -162,15 +160,18 @@ export default function HomePage() {
                     ))}
                   </div>
 
-                  <div className="mt-7 rounded-[1.5rem] bg-[#2d1e1e] px-5 py-5 text-[#f8eee7] shadow-[0_16px_34px_rgba(64,34,34,0.16)]">
+                  <Link
+                    to="/lipstick-match-quiz"
+                    className="mt-7 block rounded-[1.5rem] bg-[#2d1e1e] px-5 py-5 text-[#f8eee7] shadow-[0_16px_34px_rgba(64,34,34,0.16)] transition hover:-translate-y-0.5"
+                  >
                     <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#d9b67f]">
-                      Coming soon
+                      Now live
                     </p>
                     <p className="mt-3 text-base font-medium leading-7">
-                      Personality quiz: Which red lipstick and color palette were
-                      made for you?
+                      Take the lipstick match quiz and discover your most
+                      flattering red.
                     </p>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -211,42 +212,71 @@ export default function HomePage() {
           <p className="max-w-2xl text-base leading-8 text-[#6f5555]">
             Build the brand around searchable guides, flattering
             recommendations, and confidence-driven content that can later
-            support affiliate links, email signups, and curated product edits.
+            support affiliate links and curated product edits.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {featuredGuides.map((guide) => (
-            <article
-              key={guide.title}
-              className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-7 shadow-[0_18px_46px_rgba(64,34,34,0.05)] transition hover:-translate-y-1"
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+          <article className="rounded-[2.2rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_20px_55px_rgba(64,34,34,0.06)] transition hover:-translate-y-1 md:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+              Featured Guide
+            </p>
+
+            <h3 className="mt-5 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.03em] text-[#2d1e1e] md:text-4xl">
+              {featuredGuide.title}
+            </h3>
+
+            <p className="mt-5 max-w-2xl text-base leading-8 text-[#6f5555]">
+              {featuredGuide.description}
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="rounded-full border border-[#ead9d2] bg-[#faf7f2] px-4 py-2 text-sm text-[#6f5555]">
+                Blue-based reds
+              </span>
+              <span className="rounded-full border border-[#ead9d2] bg-[#faf7f2] px-4 py-2 text-sm text-[#6f5555]">
+                Cherry & berry tones
+              </span>
+              <span className="rounded-full border border-[#ead9d2] bg-[#faf7f2] px-4 py-2 text-sm text-[#6f5555]">
+                Smile-brightening picks
+              </span>
+            </div>
+
+            <Link
+              to={featuredGuide.to}
+              className="mt-8 inline-flex rounded-full bg-[#9f102d] px-6 py-3 text-sm font-medium text-white shadow-[0_14px_34px_rgba(159,16,45,0.18)] transition hover:-translate-y-0.5 hover:bg-[#890d26]"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
-                Guide
-              </p>
+              Read featured guide
+            </Link>
+          </article>
 
-              <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.03em] text-[#2d1e1e]">
-                {guide.title}
-              </h3>
+          <div className="grid gap-6">
+            {secondaryGuides.map((guide) => (
+              <article
+                key={guide.title}
+                className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-7 shadow-[0_18px_46px_rgba(64,34,34,0.05)] transition hover:-translate-y-1"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                  Guide
+                </p>
 
-              <p className="mt-4 text-sm leading-7 text-[#6f5555]">
-                {guide.description}
-              </p>
+                <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.03em] text-[#2d1e1e]">
+                  {guide.title}
+                </h3>
 
-              {guide.live ? (
+                <p className="mt-4 text-sm leading-7 text-[#6f5555]">
+                  {guide.description}
+                </p>
+
                 <Link
                   to={guide.to}
                   className="mt-7 inline-flex text-sm font-medium text-[#9f102d] hover:text-[#7f0c21]"
                 >
                   Read guide →
                 </Link>
-              ) : (
-                <span className="mt-7 inline-flex text-sm font-medium text-[#b38b8b]">
-                  Coming soon
-                </span>
-              )}
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -354,39 +384,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* EMAIL */}
+      {/* QUIZ CTA */}
       <section
         className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20"
-        id="email"
+        id="quiz"
       >
         <div className="rounded-[2.25rem] border border-[#ead9d2] bg-gradient-to-r from-[#2d1e1e] to-[#4a2c30] px-8 py-10 text-[#f7ece6] shadow-[0_22px_55px_rgba(64,34,34,0.14)] md:px-10 md:py-12">
           <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#d9b67f]">
-            Join the List
+            Lipstick Match Quiz
           </p>
 
           <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
-                Get the guide: 7 red lipsticks that instantly make you look more
-                polished.
+                Take the quiz and discover which red lipstick was made for you.
               </h2>
 
               <p className="mt-5 text-base leading-8 text-[#ead6d0]">
-                A future freebie that can help you grow an audience while
-                keeping the brand useful, elegant, and easy to monetize.
+                Explore the interactive quiz designed to help you find the red
+                lipstick family that feels most flattering, wearable, and
+                beautifully aligned with your coloring and style.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="min-w-[240px] rounded-full border border-white/20 bg-white/10 px-5 py-3.5 text-sm text-white placeholder:text-[#d7c4bf] focus:outline-none"
-              />
+              <Link
+                to="/lipstick-match-quiz"
+                className="inline-flex items-center justify-center rounded-full bg-[#d9b67f] px-6 py-3.5 text-sm font-medium text-[#2d1e1e] transition hover:brightness-105"
+              >
+                Take the Quiz
+              </Link>
 
-              <button className="rounded-full bg-[#d9b67f] px-6 py-3.5 text-sm font-medium text-[#2d1e1e] transition hover:brightness-105">
-                Join the List
-              </button>
+              <Link
+                to="/blue-red-vs-orange-red"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-white/15"
+              >
+                Learn About Undertones
+              </Link>
             </div>
           </div>
         </div>

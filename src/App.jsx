@@ -9,6 +9,7 @@ import WarmSkinToneColors from "./pages/WarmSkinToneColors";
 import CoolSkinToneColors from "./pages/CoolSkinToneColors";
 import NeutralSkinToneColors from "./pages/NeutralSkinToneColors";
 import TeethWhiterReds from "./pages/TeethWhiterReds";
+import LipstickMatchQuiz from "./pages/LipstickMatchQuiz";
 
 export default function App() {
   return (
@@ -41,6 +42,8 @@ export default function App() {
           path="/red-lipsticks-that-make-teeth-look-whiter"
           element={<TeethWhiterReds />}
         />
+
+        <Route path="/lipstick-match-quiz" element={<LipstickMatchQuiz />} />
       </Routes>
     </>
   );
