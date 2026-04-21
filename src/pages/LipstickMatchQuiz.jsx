@@ -362,6 +362,49 @@ const productLibrary = {
   ],
 };
 
+const resultPalettes = {
+  classicCool: [
+    { name: "Blue-Red", hex: "#A61E32" },
+    { name: "Cherry", hex: "#B3263E" },
+    { name: "Cranberry", hex: "#8E2F4F" },
+    { name: "Berry", hex: "#8A3D5E" },
+    { name: "Charcoal", hex: "#4A4E57" },
+    { name: "True White", hex: "#F8F8F6" },
+  ],
+  warmRadiant: [
+    { name: "Brick", hex: "#9E3D2E" },
+    { name: "Terracotta", hex: "#B85C38" },
+    { name: "Tomato Red", hex: "#C63D2F" },
+    { name: "Coral", hex: "#D96C5F" },
+    { name: "Camel", hex: "#B88A5A" },
+    { name: "Cream", hex: "#F2E2C9" },
+  ],
+  balancedSignature: [
+    { name: "True Red", hex: "#B0303C" },
+    { name: "Soft Berry", hex: "#9A4F63" },
+    { name: "Dusty Rose", hex: "#B67C86" },
+    { name: "Taupe", hex: "#9A8577" },
+    { name: "Soft White", hex: "#F5F1EA" },
+    { name: "Teal", hex: "#3D6F73" },
+  ],
+  softEveryday: [
+    { name: "Rose-Red", hex: "#B45A68" },
+    { name: "Soft Red", hex: "#B6494E" },
+    { name: "Muted Berry", hex: "#8C5668" },
+    { name: "Mushroom", hex: "#9C8B84" },
+    { name: "Soft Ivory", hex: "#F4EBDD" },
+    { name: "Satin Taupe", hex: "#A89286" },
+  ],
+  boldRadiant: [
+    { name: "Vivid Red", hex: "#B6202E" },
+    { name: "Orange-Red", hex: "#C7442C" },
+    { name: "Rust", hex: "#A14D33" },
+    { name: "Brick", hex: "#8F3A2D" },
+    { name: "Espresso", hex: "#5A392E" },
+    { name: "Gold", hex: "#C8A25A" },
+  ],
+};
+
 function getAxisTotals(answers) {
   const totals = {
     undertoneCool: 0,
@@ -499,6 +542,42 @@ function determineProfile(totals) {
   return "balancedSignature";
 }
 
+function buildWhyThisFits({ undertone, depth, contrast, finish }) {
+  const undertoneText =
+    undertone === "cool"
+      ? "cooler undertone clues"
+      : undertone === "warm"
+      ? "warmer undertone clues"
+      : "more balanced undertone clues";
+
+  const depthText =
+    depth === "fair-light"
+      ? "lighter overall coloring"
+      : depth === "medium"
+      ? "medium-depth coloring"
+      : depth === "medium-deep"
+      ? "medium-to-deeper coloring"
+      : "deeper overall coloring";
+
+  const contrastText =
+    contrast === "soft"
+      ? "softer natural contrast"
+      : contrast === "medium"
+      ? "moderate natural contrast"
+      : "higher natural contrast";
+
+  const finishText =
+    finish === "satin"
+      ? "a preference for satin finishes"
+      : finish === "cream"
+      ? "a preference for creamier finishes"
+      : finish === "matte"
+      ? "a preference for more defined matte finishes"
+      : "a preference for glossier, livelier finishes";
+
+  return `Your answers suggest ${undertoneText}, ${depthText}, ${contrastText}, and ${finishText}. Together, those clues point toward this red direction as a strong place to begin exploring.`;
+}
+
 function buildProfile(profileKey, totals) {
   const undertone = pickUndertone(totals);
   const depth = pickDepth(totals);
@@ -586,6 +665,8 @@ function buildProfile(profileKey, totals) {
     contrast,
     finish,
     products: productLibrary[profileKey],
+    palette: resultPalettes[profileKey],
+    whyThisFits: buildWhyThisFits({ undertone, depth, contrast, finish }),
   };
 }
 
@@ -736,6 +817,15 @@ export default function LipstickMatchQuiz() {
               </div>
             </div>
 
+            <div className="mt-8 rounded-[1.5rem] border border-[#ead9d2] bg-[#fffaf6] px-5 py-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c7a76c]">
+                Why this profile fits
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[#5f4949]">
+                {result.whyThisFits}
+              </p>
+            </div>
+
             <div className="mt-8">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
                 Promising shade families
@@ -749,6 +839,34 @@ export default function LipstickMatchQuiz() {
                   >
                     {item}
                   </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                Your palette direction
+              </p>
+
+              <p className="mt-3 text-sm leading-7 text-[#6f5555]">
+                These colors reflect the overall direction your answers point
+                toward and can help guide both lipstick and wardrobe choices.
+              </p>
+
+              <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
+                {result.palette.map((color) => (
+                  <div
+                    key={color.name}
+                    className="rounded-[1.4rem] border border-[#ead9d2] bg-[#fffaf6] p-4 text-center"
+                  >
+                    <div
+                      className="mx-auto h-14 w-14 rounded-full border border-black/5 shadow-sm"
+                      style={{ backgroundColor: color.hex }}
+                    />
+                    <p className="mt-3 text-sm font-medium text-[#2d1e1e]">
+                      {color.name}
+                    </p>
+                  </div>
                 ))}
               </div>
             </div>
