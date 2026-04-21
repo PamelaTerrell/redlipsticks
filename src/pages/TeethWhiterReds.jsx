@@ -48,6 +48,51 @@ export default function TeethWhiterReds() {
     "Lip liner can help create a cleaner, more polished finish, which also makes the overall look feel brighter.",
   ];
 
+  const productPicks = [
+    {
+      name: "MAC Ruby Woo",
+      note: "A legendary vivid blue-red matte with a classic teeth-brightening effect.",
+      tier: "Prestige",
+      retailer: "MAC",
+      link: "https://www.maccosmetics.com/product/13854/52593/products/makeup/lips/lipstick/retro-matte-lipstick",
+    },
+    {
+      name: "Dior Rouge Dior 999",
+      note: "A luxury iconic red worth checking first if you want a polished classic.",
+      tier: "Luxury",
+      retailer: "Sephora",
+      link: "https://www.sephora.com/product/dior-rouge-dior-lipstick-P467760",
+    },
+    {
+      name: "NARS Dragon Girl",
+      note: "A cool bright red that gives a crisp, lively finish.",
+      tier: "Prestige",
+      retailer: "Sephora",
+      link: "https://www.sephora.com/product/powermatte-lipstick-dragon-girl-0-8-gr-P508342",
+    },
+    {
+      name: "Revlon Cherries in the Snow",
+      note: "A classic affordable berry-red with cool undertones and vintage glamour.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/super-lustrous-lipstick-xlsImpprod2940211?sku=1741444",
+    },
+    {
+      name: "Maybelline SuperStay Matte Ink in Pioneer",
+      note: "A bold classic red with long wear and a strong brightening look.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/superstay-matte-ink-liquid-lipstick-xlsImpprod16211185?pr_rd_page=3&sku=2537824",
+    },
+    {
+      name: "L'Oréal Colour Riche True Red",
+      note: "A creamy satin option if you want something classic and easier to wear.",
+      tier: "Drugstore",
+      retailer: "Ulta",
+      link: "https://www.ulta.com/p/colour-riche-original-satin-lipstick-2681?sku=2117582",
+    },
+  ];
+
   return (
     <PageLayout bgClassName="bg-[#faf7f2] text-[#2d1e1e]">
       {/* HERO */}
@@ -232,20 +277,66 @@ export default function TeethWhiterReds() {
               </p>
             </div>
 
-            <div className="rounded-[2rem] border border-[#ead9d2] bg-[#fffaf6] p-7 shadow-[0_16px_40px_rgba(64,34,34,0.05)]">
+            <section className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-7 shadow-[0_16px_40px_rgba(64,34,34,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
-                Future affiliate block
+                Editor&apos;s Picks
               </p>
-              <h3 className="mt-3 text-xl font-semibold tracking-[-0.02em]">
-                Product picks to add later
+
+              <h3 className="mt-4 text-xl font-semibold tracking-[-0.02em] text-[#2d1e1e]">
+                Real products to explore
               </h3>
-              <ul className="mt-5 space-y-3 text-sm leading-7 text-[#5f4949]">
-                <li>Best blue-based red</li>
-                <li>Best cherry red</li>
-                <li>Best berry red</li>
-                <li>Best cool deep red</li>
-              </ul>
-            </div>
+
+              <p className="mt-4 text-sm leading-7 text-[#5f4949]">
+                These are strong starting points if you want reds that lean
+                cooler, brighter, and more smile-enhancing.
+              </p>
+
+              <div className="mt-6 space-y-5">
+                {productPicks.map((item) => (
+                  <div
+                    key={item.name}
+                    className="rounded-[1.5rem] border border-[#eee0da] bg-[#fffaf6] p-5 transition hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(64,34,34,0.05)]"
+                  >
+                    <div className="flex flex-col gap-3">
+                      <div className="flex flex-wrap gap-2">
+                        <span className="rounded-full bg-[#9f102d]/10 px-3 py-1 text-xs font-medium text-[#9f102d]">
+                          {item.tier}
+                        </span>
+                        <span className="rounded-full bg-[#efe4dc] px-3 py-1 text-xs font-medium text-[#6a5050]">
+                          {item.retailer}
+                        </span>
+                      </div>
+
+                      <h4 className="text-lg font-semibold text-[#2d1e1e]">
+                        {item.name}
+                      </h4>
+
+                      <p className="text-sm leading-7 text-[#5f4949]">
+                        {item.note}
+                      </p>
+
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer sponsored"
+                        className="mt-1 inline-flex w-fit rounded-full bg-[#9f102d] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#890d26]"
+                        onClick={() => {
+                          if (window.gtag) {
+                            window.gtag("event", "product_click", {
+                              product_name: item.name,
+                              retailer: item.retailer,
+                              page_context: "teeth_whiter_reds",
+                            });
+                          }
+                        }}
+                      >
+                        View Pick
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
             <div className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-7 shadow-[0_16px_40px_rgba(64,34,34,0.05)]">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#9f102d]">
