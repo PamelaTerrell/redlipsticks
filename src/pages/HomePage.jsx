@@ -95,19 +95,18 @@ export default function HomePage() {
             </p>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#7b6060] md:text-lg">
-              Discover refined red lipstick edits, undertone guidance,
-              flattering color palettes, jewelry suggestions, and
-              confidence-driven beauty inspiration designed to make personal
-              style feel luxurious instead of overwhelming.
+              Discover your undertone, explore flattering color palettes, and
+              find the red lipstick direction that makes your whole face look
+              more polished, radiant, and beautifully in harmony.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#guides"
+              <Link
+                to="/lipstick-match-quiz"
                 className="inline-flex items-center justify-center rounded-full bg-[#9f102d] px-7 py-3.5 text-sm font-medium text-white shadow-[0_14px_34px_rgba(159,16,45,0.22)] transition hover:-translate-y-0.5 hover:bg-[#890d26]"
               >
-                Explore the Edit
-              </a>
+                Take the Quiz
+              </Link>
 
               <a
                 href="#undertones"
@@ -168,8 +167,8 @@ export default function HomePage() {
                       Now live
                     </p>
                     <p className="mt-3 text-base font-medium leading-7">
-                      Take the lipstick match quiz and discover your most
-                      flattering red.
+                      Find your color palette and discover the red lipstick
+                      direction that flatters you most.
                     </p>
                   </Link>
                 </div>
@@ -345,41 +344,66 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* MONETIZATION / SHOP */}
+      {/* EXPLORE MORE */}
       <section id="shop">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-16 lg:py-18">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#9f102d]">
-              Monetization Path
-            </p>
+        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#9f102d]">
+                Explore More
+              </p>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
-              Ready for affiliate links, product edits, and quizzes
-            </h2>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
+                More red lipstick guidance is on the way
+              </h2>
 
-            <p className="mt-6 max-w-xl text-base leading-8 text-[#6f5555]">
-              This version positions the brand as elegant and useful. It gives
-              you room to publish lipstick guides, undertone articles,
-              comparison pages, jewelry pairings, and curated recommendations
-              without the site feeling cluttered or overly salesy.
-            </p>
-          </div>
+              <p className="mt-6 max-w-xl text-base leading-8 text-[#6f5555]">
+                RedLipsticks.com is designed to help you discover the shades,
+                finishes, and color directions that feel most flattering on you.
+                As the site grows, you’ll be able to explore curated lipstick
+                edits, undertone-focused recommendations, and polished product
+                roundups that make shopping smarter and easier.
+              </p>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              "Best reds under $15",
-              "Luxury reds worth the splurge",
-              "Lip liners that elevate every red",
-              "Most flattering reds for warm undertones",
-            ].map((item) => (
-              <div
-                key={item}
-                className="rounded-[1.6rem] border border-[#ead9d2] bg-white px-5 py-5 text-sm text-[#4f3a3a] shadow-[0_12px_30px_rgba(64,34,34,0.04)]"
-              >
-                {item}
-              </div>
-            ))}
+              <p className="mt-5 max-w-xl text-base leading-8 text-[#6f5555]">
+                Think of it as your elegant guide to finding the reds that feel
+                more refined, more wearable, and more beautifully in harmony
+                with your features.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  title: "Best Reds Under $15",
+                  text: "Affordable reds that still look polished and elevated.",
+                },
+                {
+                  title: "Luxury Reds Worth the Splurge",
+                  text: "Beautiful formulas and iconic shades for a more indulgent edit.",
+                },
+                {
+                  title: "Lip Liners That Elevate Every Red",
+                  text: "The small detail that makes red lipstick look cleaner and more refined.",
+                },
+                {
+                  title: "The Best Reds by Undertone",
+                  text: "Explore flattering red directions for warm, cool, and neutral coloring.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-[1.6rem] border border-[#ead9d2] bg-white px-5 py-5 shadow-[0_12px_30px_rgba(64,34,34,0.04)]"
+                >
+                  <p className="text-sm font-semibold tracking-[-0.01em] text-[#2d1e1e]">
+                    {item.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-7 text-[#6f5555]">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -401,9 +425,10 @@ export default function HomePage() {
               </h2>
 
               <p className="mt-5 text-base leading-8 text-[#ead6d0]">
-                Explore the interactive quiz designed to help you find the red
-                lipstick family that feels most flattering, wearable, and
-                beautifully aligned with your coloring and style.
+                Explore the interactive quiz designed to help you find your
+                undertone, your most flattering color palette, and the red
+                lipstick direction that feels most beautifully aligned with your
+                coloring and style.
               </p>
             </div>
 
