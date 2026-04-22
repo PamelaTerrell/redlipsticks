@@ -10,6 +10,7 @@ import CoolSkinToneColors from "./pages/CoolSkinToneColors";
 import NeutralSkinToneColors from "./pages/NeutralSkinToneColors";
 import TeethWhiterReds from "./pages/TeethWhiterReds";
 import LipstickMatchQuiz from "./pages/LipstickMatchQuiz";
+import MatureLips from "./pages/MatureLips";
 
 export default function App() {
   return (
@@ -44,6 +45,11 @@ export default function App() {
         />
 
         <Route path="/lipstick-match-quiz" element={<LipstickMatchQuiz />} />
+
+        <Route
+  path="/best-red-lipsticks-for-mature-lips"
+  element={<MatureLips />}
+/>
       </Routes>
     </>
   );

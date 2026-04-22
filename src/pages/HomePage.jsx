@@ -18,6 +18,12 @@ export default function HomePage() {
       to: "/best-red-lipsticks-over-40",
     },
     {
+      title: "Best Red Lipsticks for Mature Lips",
+      description:
+        "Creamy, satin, and refined red lipstick directions that flatter mature lips beautifully.",
+      to: "/best-red-lipsticks-for-mature-lips",
+    },
+    {
       title: "Blue-Red vs Orange-Red",
       description:
         "A simple guide to undertones so you can find the red that loves you back.",
@@ -60,6 +66,25 @@ export default function HomePage() {
     "Undertone guidance that makes beauty choices easier",
     "Interactive quiz experience for personalized lipstick direction",
     "Elegant visual branding that feels polished and memorable",
+  ];
+
+  const exploreMore = [
+    {
+      title: "Best Reds Under $15",
+      text: "Affordable reds that still look polished and elevated.",
+    },
+    {
+      title: "Luxury Reds Worth the Splurge",
+      text: "Beautiful formulas and iconic shades for a more indulgent edit.",
+    },
+    {
+      title: "Best Reds for Mature Lips",
+      text: "Creamy, satin, and softer red directions that feel smoother and more elegant on mature lips.",
+    },
+    {
+      title: "The Best Reds by Undertone",
+      text: "Explore flattering red directions for warm, cool, and neutral coloring.",
+    },
   ];
 
   return (
@@ -215,7 +240,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
           <article className="rounded-[2.2rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_20px_55px_rgba(64,34,34,0.06)] transition hover:-translate-y-1 md:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
               Featured Guide
@@ -344,8 +369,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* EXPLORE MORE */}
-      <section id="shop">
+      <section id="shop" className="border-y border-[#ead9d2] bg-[#fffaf6]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
@@ -354,7 +380,7 @@ export default function HomePage() {
               </p>
 
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
-                More red lipstick guidance is on the way
+                More polished red lipstick guidance is on the way
               </h2>
 
               <p className="mt-6 max-w-xl text-base leading-8 text-[#6f5555]">
@@ -373,24 +399,7 @@ export default function HomePage() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                {
-                  title: "Best Reds Under $15",
-                  text: "Affordable reds that still look polished and elevated.",
-                },
-                {
-                  title: "Luxury Reds Worth the Splurge",
-                  text: "Beautiful formulas and iconic shades for a more indulgent edit.",
-                },
-                {
-                  title: "Lip Liners That Elevate Every Red",
-                  text: "The small detail that makes red lipstick look cleaner and more refined.",
-                },
-                {
-                  title: "The Best Reds by Undertone",
-                  text: "Explore flattering red directions for warm, cool, and neutral coloring.",
-                },
-              ].map((item) => (
+              {exploreMore.map((item) => (
                 <div
                   key={item.title}
                   className="rounded-[1.6rem] border border-[#ead9d2] bg-white px-5 py-5 shadow-[0_12px_30px_rgba(64,34,34,0.04)]"

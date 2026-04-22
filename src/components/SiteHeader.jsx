@@ -56,6 +56,12 @@ export default function SiteHeader() {
             Over 40
           </Link>
           <Link
+            to="/best-red-lipsticks-for-mature-lips"
+            className="transition hover:text-[#9f102d]"
+          >
+            Mature Lips
+          </Link>
+          <Link
             to="/lipstick-match-quiz"
             className="inline-flex items-center justify-center rounded-full border border-[#d9c2b7] bg-white px-4 py-2 text-sm font-medium text-[#9f102d] shadow-[0_8px_24px_rgba(64,34,34,0.05)] transition hover:-translate-y-0.5 hover:border-[#c7a76c] hover:bg-[#fff7f6]"
           >
@@ -142,6 +148,14 @@ export default function SiteHeader() {
               className="rounded-[1.25rem] border border-[#f0e2db] bg-white px-4 py-3 text-sm font-medium text-[#2d1e1e] transition hover:border-[#d9c2b7] hover:text-[#9f102d]"
             >
               Best Reds Over 40
+            </Link>
+
+            <Link
+              to="/best-red-lipsticks-for-mature-lips"
+              onClick={closeMenu}
+              className="rounded-[1.25rem] border border-[#f0e2db] bg-white px-4 py-3 text-sm font-medium text-[#2d1e1e] transition hover:border-[#d9c2b7] hover:text-[#9f102d]"
+            >
+              Best Reds for Mature Lips
             </Link>
 
             <Link
