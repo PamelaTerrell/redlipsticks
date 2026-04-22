@@ -13,6 +13,7 @@ import LipstickMatchQuiz from "./pages/LipstickMatchQuiz";
 import MatureLips from "./pages/MatureLips";
 import BestRedsUnder15 from "./pages/BestRedsUnder15";
 import LuxuryRedsWorthTheSplurge from "./pages/LuxuryRedsWorthTheSplurge";
+import BestRedsByUndertone from "./pages/BestRedsByUndertone";
 
 export default function App() {
   return (
@@ -61,6 +62,11 @@ export default function App() {
         <Route
   path="/luxury-red-lipsticks-worth-the-splurge"
   element={<LuxuryRedsWorthTheSplurge />}
+/>
+
+<Route
+  path="/best-red-lipsticks-by-undertone"
+  element={<BestRedsByUndertone />}
 />
 
       </Routes>
