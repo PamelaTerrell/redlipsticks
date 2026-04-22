@@ -69,6 +69,37 @@ export default function MatureLips() {
     },
   ];
 
+  const editorsPicks = [
+    {
+      name: "Charlotte Tilbury Red Carpet Red",
+      note:
+        "A luxurious modern classic with a smoother, richer finish that feels elegant and polished on mature lips.",
+      tier: "Luxury",
+      url: "https://www.charlottetilbury.com/us/product/matte-revolution-red-carpet-red",
+    },
+    {
+      name: "Revlon Super Lustrous Love That Red",
+      note:
+        "A longtime favorite with a creamy texture, flattering classic red tone, and affordable price.",
+      tier: "Best Value",
+      url: "https://amzn.to/YOUR-LINK-2",
+    },
+    {
+      name: "L'Oréal Colour Riche Classic Wine",
+      note:
+        "A richer berry-red option that can feel especially flattering for evening wear or cooler seasons.",
+      tier: "Rich Tone",
+      url: "https://amzn.to/YOUR-LINK-3",
+    },
+    {
+      name: "NYX Lip Pencil Natural / Red",
+      note:
+        "A helpful liner option for cleaner edges, feathering control, and a more refined red lipstick finish.",
+      tier: "Helpful Extra",
+      url: "https://amzn.to/YOUR-LINK-4",
+    },
+  ];
+
   return (
     <PageLayout bgClassName="bg-[#faf7f2] text-[#2d1e1e]">
       {/* HERO */}
@@ -271,6 +302,70 @@ export default function MatureLips() {
               </div>
             </section>
 
+            <section className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_18px_46px_rgba(64,34,34,0.05)] md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                Editor&apos;s Picks
+              </p>
+
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
+                Red lipsticks worth exploring for mature lips
+              </h2>
+
+              <p className="mt-5 max-w-3xl text-[15px] leading-8 text-[#5f4949] md:text-base">
+                These are the kinds of formulas worth looking for if your goal
+                is a red lipstick that feels smoother, more comfortable, and
+                more elegant on mature lips.
+              </p>
+
+              <div className="mt-8 space-y-5">
+                {editorsPicks.map((item) => (
+                  <div
+                    key={item.name}
+                    className="rounded-[1.75rem] border border-[#eee0da] bg-[#fffaf6] p-6"
+                  >
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h3 className="text-xl font-semibold tracking-[-0.02em] text-[#2d1e1e] md:text-2xl">
+                          {item.name}
+                        </h3>
+
+                        <p className="mt-3 text-sm leading-7 text-[#5f4949] md:text-[15px]">
+                          {item.note}
+                        </p>
+                      </div>
+
+                      <span className="rounded-full bg-[#9f102d]/10 px-3 py-1 text-xs font-medium text-[#9f102d]">
+                        {item.tier}
+                      </span>
+                    </div>
+
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="nofollow sponsored noopener noreferrer"
+                      className="mt-5 inline-flex rounded-full bg-[#9f102d] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#890d26]"
+                      onClick={() => {
+                        if (window.gtag) {
+                          window.gtag("event", "product_click", {
+                            product_name: item.name,
+                            product_tier: item.tier,
+                            page_context: "mature_lips",
+                          });
+                        }
+                      }}
+                    >
+                      Shop Now
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-6 text-xs leading-6 text-[#8a7272]">
+                Some links on this page may be affiliate links, which means
+                RedLipsticks.com may earn a commission at no extra cost to you.
+              </p>
+            </section>
+
             <section className="rounded-[2rem] border border-[#ead9d2] bg-gradient-to-r from-[#2d1e1e] to-[#4a2c30] p-8 text-[#f8eee7] shadow-[0_18px_46px_rgba(64,34,34,0.14)] md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#d9b67f]">
                 Final thought
@@ -298,6 +393,28 @@ export default function MatureLips() {
                 creamy, satin, or softly textured formulas that add richness and
                 polish without emphasizing dryness.
               </p>
+            </div>
+
+            <div className="rounded-[2rem] border border-[#ead9d2] bg-gradient-to-br from-[#2d1e1e] to-[#4a2c30] p-7 text-[#f8eee7] shadow-[0_16px_40px_rgba(64,34,34,0.14)]">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#d9b67f]">
+                Personalized help
+              </p>
+
+              <h3 className="mt-3 text-2xl font-semibold tracking-[-0.02em]">
+                Still not sure which red suits you best?
+              </h3>
+
+              <p className="mt-4 text-sm leading-7 text-[#ead6d0]">
+                Take the lipstick match quiz to discover a more flattering red
+                direction based on undertone, softness, contrast, and style.
+              </p>
+
+              <Link
+                to="/lipstick-match-quiz"
+                className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-medium text-[#2d1e1e] transition hover:brightness-105"
+              >
+                Take the quiz
+              </Link>
             </div>
 
             <div className="rounded-[2rem] border border-[#ead9d2] bg-[#fffaf6] p-7 shadow-[0_16px_40px_rgba(64,34,34,0.05)]">
