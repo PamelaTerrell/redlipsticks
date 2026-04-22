@@ -69,6 +69,37 @@ export default function MatureLips() {
     },
   ];
 
+  const applicationTips = [
+    "Prep with a light layer of balm and let it absorb before applying color.",
+    "Use lip liner to softly define the shape and help reduce feathering.",
+    "Apply lipstick in thinner layers and blot once for a smoother finish.",
+    "A lip brush can help place bold red more precisely without looking harsh.",
+    "For extra softness, tap a tiny bit of gloss or balm into the center of the lips.",
+  ];
+
+  const faqs = [
+    {
+      question: "Is matte lipstick bad for mature lips?",
+      answer:
+        "Not always, but very dry matte formulas can emphasize texture more easily. Cream, satin, and softer matte formulas are often more forgiving.",
+    },
+    {
+      question: "What lipstick finish is usually best after 40 or 50?",
+      answer:
+        "Cream and satin finishes are often the most flattering because they give richness and softness without looking stiff or overly flat.",
+    },
+    {
+      question: "Can mature lips still wear bold red lipstick?",
+      answer:
+        "Absolutely. Bold red can look stunning on mature lips when the formula is comfortable and the undertone feels harmonious with the face.",
+    },
+    {
+      question: "Should mature lips use lip liner with red lipstick?",
+      answer:
+        "Often yes. Lip liner can help define the edges, reduce feathering, and create a cleaner, more polished finish.",
+    },
+  ];
+
   const editorsPicks = [
     {
       name: "Charlotte Tilbury Red Carpet Red",
@@ -76,27 +107,31 @@ export default function MatureLips() {
         "A luxurious modern classic with a smoother, richer finish that feels elegant and polished on mature lips.",
       tier: "Luxury",
       url: "https://www.charlottetilbury.com/us/product/matte-revolution-red-carpet-red",
+      buttonText: "Shop Luxury Pick",
     },
     {
       name: "Revlon Super Lustrous Love That Red",
       note:
         "A longtime favorite with a creamy texture, flattering classic red tone, and affordable price.",
       tier: "Best Value",
-      url: "https://amzn.to/YOUR-LINK-2",
+      url: "https://us.amazon.com/Revlon-Super-Lustrous-Creme-Lipstick/dp/B0000531X0",
+      buttonText: "Shop Best Value",
     },
     {
       name: "L'Oréal Colour Riche Classic Wine",
       note:
         "A richer berry-red option that can feel especially flattering for evening wear or cooler seasons.",
       tier: "Rich Tone",
-      url: "https://amzn.to/YOUR-LINK-3",
+      url: "https://www.amazon.com/Paris-Original-Hydrating-Lipstick-Classic/dp/B004BCX8SY",
+      buttonText: "Shop Rich Tone",
     },
     {
-      name: "NYX Lip Pencil Natural / Red",
+      name: "NYX Slim Lip Pencil Hot Red",
       note:
         "A helpful liner option for cleaner edges, feathering control, and a more refined red lipstick finish.",
       tier: "Helpful Extra",
-      url: "https://amzn.to/YOUR-LINK-4",
+      url: "https://www.amazon.com/NYX-PROFESSIONAL-MAKEUP-Pencil-Long-Lasting/dp/B0BV6CD866",
+      buttonText: "Shop Liner",
     },
   ];
 
@@ -304,6 +339,25 @@ export default function MatureLips() {
 
             <section className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_18px_46px_rgba(64,34,34,0.05)] md:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                Application tips
+              </p>
+
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
+                How to make red lipstick look smoother on mature lips
+              </h2>
+
+              <ul className="mt-8 space-y-5 text-[15px] leading-8 text-[#5f4949]">
+                {applicationTips.map((item) => (
+                  <li key={item} className="flex gap-4">
+                    <span className="mt-3 h-2.5 w-2.5 rounded-full bg-[#9f102d]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_18px_46px_rgba(64,34,34,0.05)] md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
                 Editor&apos;s Picks
               </p>
 
@@ -312,9 +366,9 @@ export default function MatureLips() {
               </h2>
 
               <p className="mt-5 max-w-3xl text-[15px] leading-8 text-[#5f4949] md:text-base">
-                These are the kinds of formulas worth looking for if your goal
-                is a red lipstick that feels smoother, more comfortable, and
-                more elegant on mature lips.
+                These are strong starting points if you want reds that feel
+                smoother, more comfortable, and more elegant on mature lips —
+                from Charlotte Tilbury and Revlon to L&apos;Oréal and NYX.
               </p>
 
               <div className="mt-8 space-y-5">
@@ -350,11 +404,12 @@ export default function MatureLips() {
                             product_name: item.name,
                             product_tier: item.tier,
                             page_context: "mature_lips",
+                            destination_url: item.url,
                           });
                         }
                       }}
                     >
-                      Shop Now
+                      {item.buttonText}
                     </a>
                   </div>
                 ))}
@@ -364,6 +419,32 @@ export default function MatureLips() {
                 Some links on this page may be affiliate links, which means
                 RedLipsticks.com may earn a commission at no extra cost to you.
               </p>
+            </section>
+
+            <section className="rounded-[2rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_18px_46px_rgba(64,34,34,0.05)] md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
+                FAQ
+              </p>
+
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] md:text-4xl">
+                Common questions about red lipstick for mature lips
+              </h2>
+
+              <div className="mt-8 space-y-5">
+                {faqs.map((item) => (
+                  <div
+                    key={item.question}
+                    className="rounded-[1.5rem] border border-[#eee0da] bg-[#fffaf6] p-6"
+                  >
+                    <h3 className="text-lg font-semibold text-[#2d1e1e] md:text-xl">
+                      {item.question}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-[#5f4949] md:text-[15px]">
+                      {item.answer}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </section>
 
             <section className="rounded-[2rem] border border-[#ead9d2] bg-gradient-to-r from-[#2d1e1e] to-[#4a2c30] p-8 text-[#f8eee7] shadow-[0_18px_46px_rgba(64,34,34,0.14)] md:p-10">
