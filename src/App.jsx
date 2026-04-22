@@ -11,6 +11,7 @@ import NeutralSkinToneColors from "./pages/NeutralSkinToneColors";
 import TeethWhiterReds from "./pages/TeethWhiterReds";
 import LipstickMatchQuiz from "./pages/LipstickMatchQuiz";
 import MatureLips from "./pages/MatureLips";
+import BestRedsUnder15 from "./pages/BestRedsUnder15";
 
 export default function App() {
   return (
@@ -50,6 +51,12 @@ export default function App() {
   path="/best-red-lipsticks-for-mature-lips"
   element={<MatureLips />}
 />
+
+        <Route
+  path="/best-red-lipsticks-under-15"
+  element={<BestRedsUnder15 />}
+/>
+
       </Routes>
     </>
   );

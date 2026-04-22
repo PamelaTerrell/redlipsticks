@@ -68,24 +68,32 @@ export default function HomePage() {
     "Elegant visual branding that feels polished and memorable",
   ];
 
-  const exploreMore = [
-    {
-      title: "Best Reds Under $15",
-      text: "Affordable reds that still look polished and elevated.",
-    },
-    {
-      title: "Luxury Reds Worth the Splurge",
-      text: "Beautiful formulas and iconic shades for a more indulgent edit.",
-    },
-    {
-      title: "Best Reds for Mature Lips",
-      text: "Creamy, satin, and softer red directions that feel smoother and more elegant on mature lips.",
-    },
-    {
-      title: "The Best Reds by Undertone",
-      text: "Explore flattering red directions for warm, cool, and neutral coloring.",
-    },
-  ];
+ const exploreMore = [
+  {
+    title: "Best Reds Under $15",
+    text: "Affordable red lipsticks that still look polished, flattering, and more expensive than their price tag.",
+    to: "/best-red-lipsticks-under-15",
+    badge: "Budget Favorite",
+  },
+  {
+    title: "Luxury Reds Worth the Splurge",
+    text: "Iconic red lipsticks with elevated formulas, richer finishes, and true statement glamour.",
+    to: "/luxury-red-lipsticks-worth-the-splurge",
+    badge: "Luxury Edit",
+  },
+  {
+    title: "Best Reds for Mature Lips",
+    text: "Creamy, satin, and softer red directions that feel smoother, richer, and more elegant on mature lips.",
+    to: "/best-red-lipsticks-for-mature-lips",
+    badge: "Most Popular",
+  },
+  {
+    title: "The Best Reds by Undertone",
+    text: "Find the red lipstick direction that works beautifully with warm, cool, or neutral coloring.",
+    to: "/best-red-lipsticks-by-undertone",
+    badge: "Must Read",
+  },
+];
 
   return (
     <div className="min-h-screen bg-[#faf7f2] text-[#2d1e1e]">
@@ -370,7 +378,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* EXPLORE MORE */}
+            {/* EXPLORE MORE */}
       <section id="shop" className="border-y border-[#ead9d2] bg-[#fffaf6]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -400,22 +408,40 @@ export default function HomePage() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               {exploreMore.map((item) => (
-                <div
+                <Link
                   key={item.title}
-                  className="rounded-[1.6rem] border border-[#ead9d2] bg-white px-5 py-5 shadow-[0_12px_30px_rgba(64,34,34,0.04)]"
+                  to={item.to}
+                  className="group block rounded-[1.6rem] border border-[#ead9d2] bg-white px-5 py-5 shadow-[0_12px_30px_rgba(64,34,34,0.04)] transition duration-200 hover:-translate-y-1 hover:border-[#d9c2b7] hover:shadow-[0_18px_40px_rgba(64,34,34,0.08)]"
                 >
-                  <p className="text-sm font-semibold tracking-[-0.01em] text-[#2d1e1e]">
-                    {item.title}
-                  </p>
+                  <div className="flex items-start justify-between gap-4">
+                    <p className="text-sm font-semibold tracking-[-0.01em] text-[#2d1e1e]">
+                      {item.title}
+                    </p>
+
+                    {item.badge ? (
+                      <span className="shrink-0 rounded-full bg-[#9f102d]/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-[#9f102d]">
+                        {item.badge}
+                      </span>
+                    ) : null}
+                  </div>
+
                   <p className="mt-3 text-sm leading-7 text-[#6f5555]">
                     {item.text}
                   </p>
-                </div>
+
+                  <p className="mt-5 inline-flex items-center text-sm font-medium text-[#9f102d] transition group-hover:translate-x-0.5">
+                    Explore guide →
+                  </p>
+                </Link>
               ))}
             </div>
           </div>
         </div>
       </section>
+
+             
+
+            
 
       {/* QUIZ CTA */}
       <section
