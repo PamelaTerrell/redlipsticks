@@ -102,295 +102,179 @@ export default function CoolSkinToneColors() {
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#74657b] md:text-lg">
               If your undertones lean pink, rosy, or blue-based, cool reds,
               jewel tones, and silvery metals often make your features look
-              clearer, fresher, and more polished. Use this page as your full
-              guide to color, lipstick, jewelry, and styling direction.
+              clearer, fresher, and more polished.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href="#full-chart"
-                className="inline-flex items-center justify-center rounded-full bg-[#7b4f7f] px-7 py-3.5 text-sm font-medium text-white shadow-[0_14px_34px_rgba(123,79,127,0.22)] transition hover:-translate-y-0.5 hover:bg-[#69436d]"
+                href="#comparison"
+                className="inline-flex items-center justify-center rounded-full bg-[#7b4f7f] px-7 py-3.5 text-sm font-medium text-white"
               >
-                See full palette
+                Right vs Wrong Colors
               </a>
 
               <Link
                 to="/lipstick-match-quiz"
-                className="inline-flex items-center justify-center rounded-full border border-[#d8cfdd] bg-white/80 px-7 py-3.5 text-sm font-medium text-[#2b2230] shadow-[0_10px_28px_rgba(64,34,34,0.04)] transition hover:-translate-y-0.5 hover:border-[#bca7c7] hover:bg-white"
+                className="inline-flex items-center justify-center rounded-full border border-[#d8cfdd] bg-white px-7 py-3.5 text-sm font-medium text-[#2b2230]"
               >
-                Take the quiz
+                Take the Quiz
               </Link>
             </div>
-
-            <div className="mt-9 flex flex-wrap gap-3 text-sm text-[#6f6275]">
-              <span className="rounded-full border border-[#e6dde9] bg-white/80 px-4 py-2">
-                Blue-based reds
-              </span>
-              <span className="rounded-full border border-[#e6dde9] bg-white/80 px-4 py-2">
-                Jewel-tone wardrobes
-              </span>
-              <span className="rounded-full border border-[#e6dde9] bg-white/80 px-4 py-2">
-                Silver & white gold
-              </span>
-            </div>
           </div>
 
-          <div className="relative">
-            <div className="rounded-[2.25rem] border border-[#e6dde9] bg-white/85 p-5 shadow-[0_26px_72px_rgba(55,40,66,0.08)] backdrop-blur">
-              <div className="rounded-[2rem] bg-gradient-to-br from-[#eef0f8] via-[#faf8fb] to-[#eee7f2] p-4 md:p-5">
-                <img
-                  src="/cool-skin-tone-chart.png"
-                  alt="Chic cool skin tone color chart with clothing colors, lipstick shades, and jewelry recommendations"
-                  className="w-full rounded-[1.6rem] border border-white/70 object-cover shadow-[0_18px_40px_rgba(55,40,66,0.08)]"
-                />
+          <div className="rounded-[2rem] border border-[#e6dde9] bg-white p-5 shadow-xl">
+            <img
+              src="/cool-skin-tone-chart.png"
+              alt="Cool tone chart"
+              className="w-full rounded-[1.5rem]"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* NEW COMPARISON IMAGE */}
+      <section
+        id="comparison"
+        className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16"
+      >
+        <div className="rounded-[2rem] border border-[#e6dde9] bg-white p-8 shadow-xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#7b4f7f]">
+            Visual Guide
+          </p>
+
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
+            Wrong colors vs right colors
+          </h2>
+
+          <p className="mt-5 max-w-3xl text-base leading-8 text-[#605268]">
+            Yellow-heavy shades can dull cool complexions. Berry tones, navy,
+            silver, charcoal, and blue-based reds often make cool skin look
+            brighter and more elevated.
+          </p>
+
+          <div className="mt-10 overflow-hidden rounded-[1.8rem] border border-[#ece5f0]">
+            <img
+              src="/cool-tones-right-vs-wrong-colors.png"
+              alt="Wrong colors versus right colors for cool skin tones"
+              className="w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* RECOGNIZE */}
+      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16">
+        <div className="rounded-[2rem] border border-[#e6dde9] bg-white p-8 shadow-xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#7b4f7f]">
+            How to recognize it
+          </p>
+
+          <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
+            Do you have cool undertones?
+          </h2>
+
+          <div className="mt-6 space-y-4">
+            {signs.map((sign) => (
+              <div
+                key={sign}
+                className="rounded-[1.25rem] border border-[#eee6f1] bg-[#faf8fb] px-5 py-4"
+              >
+                <p className="text-sm leading-7 text-[#5f5266]">{sign}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* HOW TO RECOGNIZE IT */}
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
-        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[2rem] border border-[#e6dde9] bg-white/95 p-8 shadow-[0_18px_46px_rgba(55,40,66,0.05)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#7b4f7f]">
-              How to recognize it
-            </p>
-
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-              Do you have cool undertones?
-            </h2>
-
-            <div className="mt-6 space-y-4">
-              {signs.map((sign) => (
-                <div
-                  key={sign}
-                  className="flex gap-3 rounded-[1.25rem] border border-[#eee6f1] bg-[#faf8fb] px-4 py-4"
-                >
-                  <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#7b4f7f]" />
-                  <p className="text-sm leading-7 text-[#5f5266]">{sign}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] border border-[#e6dde9] bg-gradient-to-br from-[#ffffff] to-[#f7f3f9] p-8 shadow-[0_18px_46px_rgba(55,40,66,0.05)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#7b4f7f]">
-              Why it matters
-            </p>
-
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-              Cool harmony can make everything look more refined
-            </h2>
-
-            <p className="mt-6 text-base leading-8 text-[#605268]">
-              When your wardrobe, jewelry, and lipstick echo your undertones,
-              the overall effect often feels more effortless and elevated.
-              Cool-toned shades can help the skin appear clearer, the eyes
-              brighter, and red lipstick more naturally flattering.
-            </p>
-
-            <p className="mt-5 text-base leading-8 text-[#605268]">
-              This does not mean you can never wear warm colors. It simply means
-              that cooler, clearer shades often create the most naturally
-              harmonious effect.
-            </p>
-
-            <div className="mt-8 rounded-[1.5rem] border border-[#e6dde9] bg-white px-5 py-5">
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-[#7b4f7f]">
-                Quick shortcut
-              </p>
-              <p className="mt-3 text-sm leading-7 text-[#5f5266]">
-                If bright white, berry tones, silver jewelry, and blue-red
-                lipstick tend to look especially elegant on you, there is a good
-                chance you lean cool.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FULL COLOR CHART */}
+      {/* FULL CHART */}
       <div id="full-chart">
         <UndertoneColorChart
           eyebrow="Full Color Chart"
           title="The full color palette for cool tones"
-          description="These shades are often especially flattering on cool undertones because they echo pink, rosy, blue-based, and jewel-toned coloring. Use this as a visual guide for clothing, accessories, lipstick, and overall styling."
+          description="Use these shades for clothing, accessories, lipstick, and styling."
           accent="#7b4f7f"
           groups={coolColorGroups}
         />
       </div>
 
-      {/* RED LIPSTICK FAMILIES + JEWELRY */}
+      {/* LIPSTICKS + JEWELRY */}
       <section className="border-y border-[#e6dde9] bg-[#fcfbfd]">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
-          <div className="grid gap-6 lg:grid-cols-2">
-            <article className="rounded-[2rem] border border-[#e6dde9] bg-white p-7 shadow-[0_18px_46px_rgba(55,40,66,0.05)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b08ab6]">
-                Best Red Lipstick Families
-              </p>
+        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-16 md:px-10 lg:grid-cols-2 lg:px-16">
+          <article className="rounded-[2rem] border border-[#e6dde9] bg-white p-7 shadow-xl">
+            <h3 className="text-2xl font-semibold">
+              Best lipstick families
+            </h3>
 
-              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em]">
-                Reds that love cool undertones
-              </h3>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                {lipstickShades.map((shade) => (
-                  <span
-                    key={shade}
-                    className="rounded-full border border-[#ead8de] bg-[#fbf4f6] px-4 py-2 text-sm text-[#6b4352]"
-                  >
-                    {shade}
-                  </span>
-                ))}
-              </div>
-
-              <p className="mt-6 text-sm leading-7 text-[#6b5b72]">
-                Think blue-red, berry-red, wine-red, and cool cherry tones
-                rather than orange-leaning reds. These usually feel more
-                harmonious and often make the smile look brighter as well.
-              </p>
-
-              <div className="mt-8">
-                <Link
-                  to="/red-lipsticks-that-make-teeth-look-whiter"
-                  className="inline-flex items-center text-sm font-medium text-[#7b4f7f] hover:text-[#69436d]"
+            <div className="mt-6 flex flex-wrap gap-3">
+              {lipstickShades.map((shade) => (
+                <span
+                  key={shade}
+                  className="rounded-full border border-[#ead8de] bg-[#fbf4f6] px-4 py-2 text-sm"
                 >
-                  Explore brightening reds →
-                </Link>
-              </div>
-            </article>
+                  {shade}
+                </span>
+              ))}
+            </div>
+          </article>
 
-            <article className="rounded-[2rem] border border-[#e6dde9] bg-white p-7 shadow-[0_18px_46px_rgba(55,40,66,0.05)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#b08ab6]">
-                Jewelry & Accessories
-              </p>
+          <article className="rounded-[2rem] border border-[#e6dde9] bg-white p-7 shadow-xl">
+            <h3 className="text-2xl font-semibold">
+              Best jewelry metals
+            </h3>
 
-              <h3 className="mt-4 text-2xl font-semibold tracking-[-0.03em]">
-                Cool-toned metals and finishes
-              </h3>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                {jewelryMetals.map((metal) => (
-                  <span
-                    key={metal}
-                    className="rounded-full border border-[#e6dde9] bg-[#f6f6fa] px-4 py-2 text-sm text-[#5a5d6d]"
-                  >
-                    {metal}
-                  </span>
-                ))}
-              </div>
-
-              <p className="mt-6 text-sm leading-7 text-[#6b5b72]">
-                Silver, platinum, and white gold often mirror the coolness in
-                the skin and create a refined, graceful finish. In clothing and
-                accessories, cooler grays, jewel tones, and crisp whites often
-                work especially beautifully.
-              </p>
-            </article>
-          </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {jewelryMetals.map((metal) => (
+                <span
+                  key={metal}
+                  className="rounded-full border border-[#e6dde9] bg-[#f6f6fa] px-4 py-2 text-sm"
+                >
+                  {metal}
+                </span>
+              ))}
+            </div>
+          </article>
         </div>
       </section>
 
-      {/* COLORS TO BE CAREFUL WITH + RELATED */}
-      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="rounded-[2rem] border border-[#e6dde9] bg-white/95 p-8 shadow-[0_18px_46px_rgba(55,40,66,0.05)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#7b4f7f]">
-              Colors to be careful with
-            </p>
+      {/* MISTAKES */}
+      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16">
+        <div className="rounded-[2rem] border border-[#e6dde9] bg-white p-8 shadow-xl">
+          <h2 className="text-3xl font-semibold md:text-4xl">
+            Common mistakes for cool tones
+          </h2>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-              Common color mistakes for cool tones
-            </h2>
-
-            <div className="mt-6 space-y-4">
-              {mistakes.map((mistake) => (
-                <div
-                  key={mistake}
-                  className="rounded-[1.25rem] border border-[#eee6f1] bg-[#faf8fb] px-5 py-4"
-                >
-                  <p className="text-sm leading-7 text-[#5f5266]">{mistake}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] border border-[#e6dde9] bg-gradient-to-br from-[#f5f0f8] to-[#ffffff] p-8 shadow-[0_18px_46px_rgba(55,40,66,0.05)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#7b4f7f]">
-              Related guidance
-            </p>
-
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
-              Keep refining your red direction
-            </h2>
-
-            <p className="mt-6 text-base leading-8 text-[#605268]">
-              If you are cool-toned, some of the most useful next steps are
-              learning the difference between blue-red and orange-red, exploring
-              reds that brighten the smile, and taking the quiz for a more
-              personalized starting point.
-            </p>
-
-            <div className="mt-8 space-y-3">
-              <Link
-                to="/blue-red-vs-orange-red"
-                className="block text-sm font-medium text-[#7b4f7f] hover:text-[#69436d]"
+          <div className="mt-6 space-y-4">
+            {mistakes.map((mistake) => (
+              <div
+                key={mistake}
+                className="rounded-[1.25rem] border border-[#eee6f1] bg-[#faf8fb] px-5 py-4"
               >
-                Blue-Red vs Orange-Red →
-              </Link>
-              <Link
-                to="/red-lipsticks-that-make-teeth-look-whiter"
-                className="block text-sm font-medium text-[#7b4f7f] hover:text-[#69436d]"
-              >
-                Red Lipsticks That Make Teeth Look Whiter →
-              </Link>
-              <Link
-                to="/best-red-lipsticks-over-40"
-                className="block text-sm font-medium text-[#7b4f7f] hover:text-[#69436d]"
-              >
-                Best Red Lipsticks Over 40 →
-              </Link>
-            </div>
+                <p className="text-sm leading-7 text-[#5f5266]">{mistake}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 lg:px-16 lg:pb-20">
-        <div className="rounded-[2.25rem] border border-[#e6dde9] bg-gradient-to-r from-[#2b2230] to-[#4b3b55] px-8 py-10 text-[#f6eff8] shadow-[0_22px_55px_rgba(55,40,66,0.14)] md:px-10 md:py-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[#d8c4df]">
-            Find Your Signature Red
+      <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 lg:px-16">
+        <div className="rounded-[2rem] bg-gradient-to-r from-[#2b2230] to-[#4b3b55] px-8 py-10 text-white shadow-xl">
+          <h2 className="text-3xl font-semibold md:text-5xl">
+            Want your perfect red lipstick?
+          </h2>
+
+          <p className="mt-5 max-w-2xl text-base leading-8 text-[#e5d9ea]">
+            Take the quiz to discover the red lipstick family most likely to
+            flatter your undertone, coloring, and style.
           </p>
 
-          <div className="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
-                Want a more personalized red direction?
-              </h2>
-
-              <p className="mt-5 text-base leading-8 text-[#e5d9ea]">
-                Take the RedLipsticks quiz to explore the red lipstick families,
-                finishes, and color direction most likely to flatter your
-                undertone, coloring, and style preferences.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Link
-                to="/lipstick-match-quiz"
-                className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3.5 text-sm font-medium text-[#2b2230] transition hover:brightness-105"
-              >
-                Take the quiz
-              </Link>
-
-              <Link
-                to="/neutral-skin-tone-colors"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-white/15"
-              >
-                Explore neutral tones
-              </Link>
-            </div>
+          <div className="mt-8">
+            <Link
+              to="/lipstick-match-quiz"
+              className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-medium text-[#2b2230]"
+            >
+              Take the Quiz
+            </Link>
           </div>
         </div>
       </section>
