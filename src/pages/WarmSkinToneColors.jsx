@@ -107,10 +107,10 @@ export default function WarmSkinToneColors() {
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <a
-                href="#full-chart"
+                href="#comparison"
                 className="inline-flex items-center justify-center rounded-full bg-[#a25524] px-7 py-3.5 text-sm font-medium text-white shadow-[0_14px_34px_rgba(162,85,36,0.22)] transition hover:-translate-y-0.5 hover:bg-[#8d491c]"
               >
-                See full palette
+                See right vs wrong colors
               </a>
 
               <Link
@@ -144,6 +144,37 @@ export default function WarmSkinToneColors() {
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RIGHT VS WRONG COLORS */}
+      <section
+        id="comparison"
+        className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20"
+      >
+        <div className="rounded-[2rem] border border-[#eadbc9] bg-white/95 p-8 shadow-[0_18px_46px_rgba(72,44,26,0.05)] md:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#a25524]">
+            Visual Guide
+          </p>
+
+          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] md:text-5xl">
+            Wrong colors vs right colors for warm tones
+          </h2>
+
+          <p className="mt-5 max-w-3xl text-base leading-8 text-[#614b39]">
+            Icy pinks, cool grays, silver, and blue-heavy reds can drain warmth
+            from the complexion. Peach, coral, terracotta, olive, gold, and
+            warm reds often make warm undertones look healthier, brighter, and
+            more naturally radiant.
+          </p>
+
+          <div className="mt-10 overflow-hidden rounded-[1.8rem] border border-[#efe2d6]">
+            <img
+              src="/warm-tones-right-vs-wrong-colors.png"
+              alt="Wrong colors versus right colors for warm skin tones"
+              className="w-full object-cover"
+            />
           </div>
         </div>
       </section>
