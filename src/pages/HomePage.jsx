@@ -8,6 +8,7 @@ export default function HomePage() {
     description:
       "The cool-toned reds, cherry shades, and berry reds that make the smile look brighter.",
     to: "/red-lipsticks-that-make-teeth-look-whiter",
+    image: "/a_clean_glossy_beauty_infographic_promotional_g.png",
   };
 
   const secondaryGuides = [
@@ -68,32 +69,32 @@ export default function HomePage() {
     "Elegant visual branding that feels polished and memorable",
   ];
 
- const exploreMore = [
-  {
-    title: "Best Reds Under $15",
-    text: "Affordable red lipsticks that still look polished, flattering, and more expensive than their price tag.",
-    to: "/best-red-lipsticks-under-15",
-    badge: "Budget Favorite",
-  },
-  {
-    title: "Luxury Reds Worth the Splurge",
-    text: "Iconic red lipsticks with elevated formulas, richer finishes, and true statement glamour.",
-    to: "/luxury-red-lipsticks-worth-the-splurge",
-    badge: "Luxury Edit",
-  },
-  {
-    title: "Best Reds for Mature Lips",
-    text: "Creamy, satin, and softer red directions that feel smoother, richer, and more elegant on mature lips.",
-    to: "/best-red-lipsticks-for-mature-lips",
-    badge: "Most Popular",
-  },
-  {
-    title: "The Best Reds by Undertone",
-    text: "Find the red lipstick direction that works beautifully with warm, cool, or neutral coloring.",
-    to: "/best-red-lipsticks-by-undertone",
-    badge: "Must Read",
-  },
-];
+  const exploreMore = [
+    {
+      title: "Best Reds Under $15",
+      text: "Affordable red lipsticks that still look polished, flattering, and more expensive than their price tag.",
+      to: "/best-red-lipsticks-under-15",
+      badge: "Budget Favorite",
+    },
+    {
+      title: "Luxury Reds Worth the Splurge",
+      text: "Iconic red lipsticks with elevated formulas, richer finishes, and true statement glamour.",
+      to: "/luxury-red-lipsticks-worth-the-splurge",
+      badge: "Luxury Edit",
+    },
+    {
+      title: "Best Reds for Mature Lips",
+      text: "Creamy, satin, and softer red directions that feel smoother, richer, and more elegant on mature lips.",
+      to: "/best-red-lipsticks-for-mature-lips",
+      badge: "Most Popular",
+    },
+    {
+      title: "The Best Reds by Undertone",
+      text: "Find the red lipstick direction that works beautifully with warm, cool, or neutral coloring.",
+      to: "/best-red-lipsticks-by-undertone",
+      badge: "Must Read",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-[#faf7f2] text-[#2d1e1e]">
@@ -225,7 +226,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* GUIDES */}
+      
+
+           
+
+             {/* GUIDES */}
       <section
         className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20"
         id="guides"
@@ -249,7 +254,7 @@ export default function HomePage() {
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <article className="rounded-[2.2rem] border border-[#ead9d2] bg-white/95 p-8 shadow-[0_20px_55px_rgba(64,34,34,0.06)] transition hover:-translate-y-1 md:p-10">
+          <article className="rounded-[2.2rem] border border-[#ead9d2] bg-white/95 p-6 shadow-[0_20px_55px_rgba(64,34,34,0.06)] md:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#c7a76c]">
               Featured Guide
             </p>
@@ -273,6 +278,17 @@ export default function HomePage() {
                 Smile-brightening picks
               </span>
             </div>
+
+            <Link
+              to={featuredGuide.to}
+              className="mt-8 block overflow-hidden rounded-[1.8rem] border border-[#ead9d2] bg-[#faf7f2] transition hover:-translate-y-0.5"
+            >
+              <img
+                src={featuredGuide.image}
+                alt="Red lipsticks that make teeth look whiter"
+                className="w-full object-contain"
+              />
+            </Link>
 
             <Link
               to={featuredGuide.to}
@@ -311,6 +327,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* UNDERTONES */}
       <section
@@ -378,7 +395,7 @@ export default function HomePage() {
         </div>
       </section>
 
-            {/* EXPLORE MORE */}
+      {/* EXPLORE MORE */}
       <section id="shop" className="border-y border-[#ead9d2] bg-[#fffaf6]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -438,10 +455,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-             
-
-            
 
       {/* QUIZ CTA */}
       <section
