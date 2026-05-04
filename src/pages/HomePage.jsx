@@ -21,7 +21,7 @@ export default function HomePage() {
     {
       title: "Best Red Lipsticks for Mature Lips",
       description:
-        "Creamy, satin, and refined red lipstick directions that flatter mature lips beautifully.",
+        "Creamy, satin, and refined red directions that flatter mature lips beautifully.",
       to: "/best-red-lipsticks-for-mature-lips",
     },
     {
@@ -54,13 +54,6 @@ export default function HomePage() {
       to: "/neutral-skin-tone-colors",
       palette: ["Rose", "Soft White", "Taupe", "Teal", "Mixed Metals"],
     },
-  ];
-
-  const shopPicks = [
-    "Classic blue-red for bright smiles",
-    "Soft deep red for everyday elegance",
-    "Budget-friendly statement red",
-    "Creamy satin red for mature lips",
   ];
 
   const editorialNotes = [
@@ -101,110 +94,47 @@ export default function HomePage() {
       <SiteHeader />
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-[#ead9d2] bg-gradient-to-b from-[#fffdf9] via-[#faf7f2] to-[#f8f0eb]">
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute left-[-8rem] top-[-6rem] h-64 w-64 rounded-full bg-[#d8b3b3]/30 blur-3xl" />
-          <div className="absolute right-[-6rem] top-10 h-72 w-72 rounded-full bg-[#c7a76c]/20 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 pt-20 pb-14 md:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-16 lg:pt-24 lg:pb-24">
-          <div>
+      <section className="border-b border-[#ead9d2] bg-[#16080b]">
+        <div className="mx-auto max-w-7xl px-4 py-6 md:px-10 lg:px-16 lg:py-14">
+          <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-[#130507] shadow-[0_32px_90px_rgba(45,30,30,0.28)] md:relative md:rounded-[2.6rem]">
             <img
-              src="/kiss.png"
-              alt="Red Lipsticks logo"
-              className="mb-8 h-auto w-40 drop-shadow-[0_18px_40px_rgba(159,16,45,0.15)] md:w-52"
+              src="/home-page-hero.png"
+              alt="Elegant red lipstick beauty portrait"
+              className="mx-auto h-auto w-full object-contain md:max-h-[760px]"
             />
 
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.36em] text-[#9f102d]">
-              Beauty · Color · Confidence
-            </p>
+            <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-[#130507]/100 via-[#130507]/90 to-transparent md:block" />
+            <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-[#130507]/60 via-transparent to-transparent md:block" />
 
-            <h1 className="max-w-4xl text-5xl font-semibold leading-[0.9] tracking-[-0.055em] text-[#2d1e1e] md:text-6xl lg:text-7xl">
-              Find the red that changes everything.
-            </h1>
+            <div className="relative bg-[#130507] px-6 py-8 md:absolute md:inset-0 md:flex md:items-center md:bg-transparent md:px-0 md:py-0">
+              <div className="max-w-xl md:px-12 lg:px-16">
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#d9b67f] md:text-xs md:tracking-[0.36em]">
+                  Beauty · Color · Confidence
+                </p>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5b4343] md:text-2xl md:leading-9">
-              Elegant beauty and color guidance for women who want glamour that
-              feels polished, flattering, and effortlessly refined.
-            </p>
+                <h1 className="text-4xl font-semibold leading-[0.92] tracking-[-0.055em] text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.65)] sm:text-5xl md:text-7xl">
+                  Find the red that changes everything.
+                </h1>
 
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[#7b6060] md:text-lg">
-              Discover your undertone, explore flattering color palettes, and
-              find the red lipstick direction that makes your whole face look
-              more polished, radiant, and beautifully in harmony.
-            </p>
+                <p className="mt-5 max-w-xl text-base leading-7 text-[#f7e7e1] drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:text-lg md:text-2xl md:leading-9">
+                  Elegant beauty and color guidance for women who want glamour
+                  that feels polished and refined.
+                </p>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                to="/lipstick-match-quiz"
-                className="inline-flex items-center justify-center rounded-full bg-[#9f102d] px-7 py-3.5 text-sm font-medium text-white shadow-[0_14px_34px_rgba(159,16,45,0.22)] transition hover:-translate-y-0.5 hover:bg-[#890d26]"
-              >
-                Take the Quiz
-              </Link>
-
-              <a
-                href="#undertones"
-                className="inline-flex items-center justify-center rounded-full border border-[#d9c2b7] bg-white/80 px-7 py-3.5 text-sm font-medium text-[#2d1e1e] shadow-[0_10px_28px_rgba(64,34,34,0.04)] transition hover:-translate-y-0.5 hover:border-[#c7a76c] hover:bg-white"
-              >
-                Find Your Undertone
-              </a>
-            </div>
-
-            <div className="mt-9 flex flex-wrap gap-3 text-sm text-[#6f5555]">
-              <span className="rounded-full border border-[#ead9d2] bg-white/75 px-4 py-2">
-                Flattering shade guides
-              </span>
-              <span className="rounded-full border border-[#ead9d2] bg-white/75 px-4 py-2">
-                Clothing color palettes
-              </span>
-              <span className="rounded-full border border-[#ead9d2] bg-white/75 px-4 py-2">
-                Jewelry & undertone guidance
-              </span>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="rounded-[2.4rem] border border-[#ead9d2] bg-white/85 p-5 shadow-[0_26px_72px_rgba(64,34,34,0.08)] backdrop-blur">
-              <div className="rounded-[2rem] bg-gradient-to-br from-[#f9e3e3] via-[#fff7f6] to-[#f4e7da] p-6 md:p-8">
-                <div className="rounded-[1.75rem] border border-white/60 bg-white/70 p-6 shadow-inner md:p-7">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#9f102d]">
-                    The editorial edit
-                  </p>
-
-                  <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.04em] text-[#2d1e1e] md:text-4xl">
-                    A more polished kind of red.
-                  </h2>
-
-                  <p className="mt-5 text-base leading-8 text-[#6a5050]">
-                    Curated lipstick recommendations, undertone guidance,
-                    flattering wardrobe colors, and jewelry suggestions designed
-                    to help you build a more elevated signature style.
-                  </p>
-
-                  <div className="mt-7 grid gap-3">
-                    {shopPicks.map((pick) => (
-                      <div
-                        key={pick}
-                        className="flex items-center gap-3 rounded-[1.25rem] border border-[#eedfda] bg-white/80 px-4 py-3.5"
-                      >
-                        <span className="h-3 w-3 rounded-full bg-[#9f102d] shadow-[0_0_0_6px_rgba(159,16,45,0.08)]" />
-                        <span className="text-sm text-[#4f3a3a]">{pick}</span>
-                      </div>
-                    ))}
-                  </div>
-
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row md:mt-8">
                   <Link
                     to="/lipstick-match-quiz"
-                    className="mt-7 block rounded-[1.5rem] bg-[#2d1e1e] px-5 py-5 text-[#f8eee7] shadow-[0_16px_34px_rgba(64,34,34,0.16)] transition hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center rounded-full bg-[#9f102d] px-6 py-3.5 text-sm font-medium text-white shadow-[0_18px_42px_rgba(159,16,45,0.38)] transition hover:bg-[#b71538]"
                   >
-                    <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#d9b67f]">
-                      Now live
-                    </p>
-                    <p className="mt-3 text-base font-medium leading-7">
-                      Find your color palette and discover the red lipstick
-                      direction that flatters you most.
-                    </p>
+                    Find Your Perfect Red →
                   </Link>
+
+                  <a
+                    href="#undertones"
+                    className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-medium text-white backdrop-blur transition hover:bg-white/15"
+                  >
+                    Find Your Undertone
+                  </a>
                 </div>
               </div>
             </div>
@@ -226,11 +156,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      
-
-           
-
-             {/* GUIDES */}
+      {/* GUIDES */}
       <section
         className="mx-auto max-w-7xl px-6 py-16 md:px-10 lg:px-16 lg:py-20"
         id="guides"
@@ -247,9 +173,9 @@ export default function HomePage() {
           </div>
 
           <p className="max-w-2xl text-base leading-8 text-[#6f5555]">
-            Build the brand around searchable guides, flattering
-            recommendations, and confidence-driven content that can later
-            support affiliate links and curated product edits.
+            Build your signature look with searchable guides, flattering
+            recommendations, undertone direction, and confidence-driven beauty
+            content.
           </p>
         </div>
 
@@ -327,7 +253,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
 
       {/* UNDERTONES */}
       <section
